@@ -1,4 +1,6 @@
-import './App.css'
+import LoginPage from "./components/login-page";
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/system";
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
+      <LoginPage/>
     </ThemeProvider>
   )
 }
