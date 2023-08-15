@@ -6,11 +6,16 @@ import Copyright from '../copyright';
 import backgroundImg from '../../assets/img/LoginPageBg.png';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function LoginPage() {
+    // Usando UseState para fazer a troca do componente no elemento entre cadastro e login.
+    const [isSignUp, setIsSignUp] = useState(false);
+
+    const toggleComponent = () => {
+        setIsSignUp(!isSignUp);
+    };
     return (
-        <Router>
             <Grid container component="main" sx={{ height: '100vh' }}>
                 <CssBaseline />
                 {/* Background da página de login */}
@@ -27,16 +32,12 @@ export default function LoginPage() {
                     }}
                 />
                 <Grid item xs={12} sm={8} md={5} component={Paper} elevation={24} square>
-                    <Routes>
-                        <Route path="/" element={<SignIn />} />
-                        <Route path="/signup" element={<SignUp />} />
-                        <Route path="/signin" element={<SignIn />} />
-                    </Routes>
+                    {/* Mudar entre Signup e SignIn*/}
+                {isSignUp ? <SignUp toggleComponent={toggleComponent} /> : <SignIn toggleComponent={toggleComponent} />}
                     <Grid item >
                     <Copyright />
                     </Grid>
                 </Grid>
             </Grid>
-        </Router>
     );
 }

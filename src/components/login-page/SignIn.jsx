@@ -10,7 +10,8 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 
-export default function SignIn() {
+// Passando toggleComponent como prop para fazer a alteração entre signup e signin
+export default function SignIn({toggleComponent}) {
 
     const [formData, setFormData] = useState({
         email: '',
@@ -129,7 +130,7 @@ export default function SignIn() {
                         </Link>
                     </Grid>
                     <Grid item>
-                        <Link href="/signup" variant="body2">
+                        <Link href="#" onClick={toggleComponent} variant="body2">
                             {"É novo por aqui? Cadastre-se!"}
                         </Link>
                     </Grid>
