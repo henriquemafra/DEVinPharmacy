@@ -1,11 +1,10 @@
-import './App.css'
-import SignIn from './components/login-page'
+import Dashboard  from './components/dashboard'
 
 function App() {
 
   return (
     <>
-      <SignIn/>
+      <Dashboard/>
     </>
   )
 }
