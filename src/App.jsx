@@ -1,6 +1,4 @@
-import LoginPage from './components/login-page';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import './App.css'
 
 function App() {
 
@@ -21,7 +19,6 @@ function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
-      <LoginPage />
     </ThemeProvider>
   )
 }
