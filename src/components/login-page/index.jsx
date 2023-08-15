@@ -102,6 +102,7 @@ export default function LoginPage() {
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
+                            error={errorAlert}
                             margin="normal"
                             required
                             fullWidth
@@ -113,6 +114,7 @@ export default function LoginPage() {
                             onChange={handleChange}
                         />
                         <TextField
+                            error={errorAlertPassword}
                             margin="normal"
                             required
                             fullWidth
