@@ -10,6 +10,7 @@ import MapIcon from '@mui/icons-material/Map';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import LogoutIcon from '@mui/icons-material/Logout';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Link } from 'react-router-dom';
 
 // Componente para listar opções do Menu Lateral
 
@@ -60,10 +61,13 @@ export const secondaryListItems = (
       <ListItemText primary="Notificações" />
     </ListItemButton>
     <ListItemButton>
-      <ListItemIcon>
-        <LogoutIcon />
-      </ListItemIcon>
-      <ListItemText primary="Sair" />
+      <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+        <ListItemIcon>
+          <LogoutIcon />
+        </ListItemIcon>
+        <ListItemText primary="Sair" />
+        </Link>
     </ListItemButton>
+    
   </React.Fragment>
 );

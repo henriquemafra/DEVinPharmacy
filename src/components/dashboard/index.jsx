@@ -94,16 +94,24 @@ export default function Dashboard() {
                     >
                         <MenuIcon />
                     </IconButton>
-
+                    <img
+                        style={{  }}
+                        alt="Logo"
+                        src="src\assets\img\logoSM.png"
+                        width="50"
+                        height="50"
+                    /> 
                     <Typography
-                        component="h1"
-                        variant="h6"
+                        component="p"
+                        variant="p"
                         color="inherit"
                         fontWeight="bold"
                         noWrap
-                        sx={{ flexGrow: 1 }}
+                        sx={{ 
+                            flexGrow: 1,
+                            ml: 1  }}
                     >
-                       MM | Medication Management
+                       Medication Management
                     </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={1} color="error">

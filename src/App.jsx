@@ -1,5 +1,7 @@
+import Dashboard from './components/dashboard';
 import LoginPage from './components/login-page';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -20,9 +22,14 @@ function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
-      <LoginPage />
+      <Router>
+        <Routes>
+          <Route path='/' element={<LoginPage />} />
+          <Route path='/dashboard' element={<Dashboard />} />        
+        </Routes>
+      </Router>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -54,7 +54,7 @@ export default function SignIn({toggleComponent}) {
             }, 10000); // Utiliza função setTimeout para ocultar o alerta após 10 segundos
         } else {
             // Redirecionar para a página de Mapa
-            window.location.href = '/pagina-do-mapa'; // Lembrar de inserir o endereço da página mapa
+            window.location.href = '/dashboard'; // Lembrar de inserir o endereço da página mapa
         }
     };
     return (
