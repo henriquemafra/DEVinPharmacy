@@ -1,4 +1,5 @@
-import Dashboard  from './components/dashboard'
+import LoginPage from './components/login-page';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function App() {
 
