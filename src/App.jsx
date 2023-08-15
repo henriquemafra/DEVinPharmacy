@@ -1,15 +1,15 @@
-import LoginPage from "./components/login-page";
-import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/system";
+import LoginPage from './components/login-page';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 function App() {
 
   const customColors = {
     primary: {
-      main: '#3750F0', // Cor primária do aplicativo
+      main: '#04005D', // Cor primária do aplicativo
     },
     secondary: {
-      main: '#000000', // Cor secundária do aplicativo
+      main: '#FA874C', // Cor secundária do aplicativo
     },
   };
 
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
-      <LoginPage/>
+      <LoginPage />
     </ThemeProvider>
   )
 }
