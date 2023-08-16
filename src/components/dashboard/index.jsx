@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
+import NewDrugstore from '../drugstores';
 
 // Largura da Gaveta
 const drawerWidth = 240;
@@ -166,10 +167,10 @@ export default function Dashboard() {
                             sx={{
                                 display: 'flex',
                                 flexDirection: 'column',
-                                height: '82vh',
+                                height: 'contain',
                             }}
                         >
-                            {/* Adicionar o conteudo */}
+                            <NewDrugstore/>
                         </Paper>
                     </Container>
                 </Container>
