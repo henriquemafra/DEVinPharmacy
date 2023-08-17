@@ -153,15 +153,19 @@ export default function NewDrugstore() {
 
 
     // Usa API da openstreetmap para obter os dados aproximados de geolocalização através do CEP
-    const obterGeolocalizacao = async (cep) => {
+    const obterGeolocalizacao = async (endereco) => {
         try {
-            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${cep}`);
+            const apiKey = 'AIzaSyB__bX2Rwc-3E7A9luN09-r7LetvLnINoo';
+            const formattedEndereco = encodeURIComponent(endereco);
+    
+            const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedEndereco}&key=${apiKey}`);
             const data = await response.json();
-
-            if (data.length > 0) {
+    console.log(data)
+            if (data.results.length > 0) {
+                const location = data.results[0].geometry.location;
                 return {
-                    lat: data[0].lat,
-                    lon: data[0].lon
+                    lat: location.lat,
+                    lon: location.lng
                 };
             } else {
                 throw new Error('Nenhum resultado de geolocalização encontrado');
@@ -170,12 +174,13 @@ export default function NewDrugstore() {
             throw new Error('Erro ao obter geolocalização');
         }
     };
+    
 
     // UseEffect para atualizar a geolocalização quando o CEP mudar
     useEffect(() => {
         if (endereco.cep) {
             const formattedCep = endereco.cep.replace(/\D/g, '');
-
+    
             obterGeolocalizacao(formattedCep)
                 .then(result => {
                     setEndereco(prevEndereco => ({
@@ -189,6 +194,7 @@ export default function NewDrugstore() {
                 });
         }
     }, [endereco.cep]);
+    
 
     return (
         <Box sx={{ p: 2, overflow: 'hidden' }}>
