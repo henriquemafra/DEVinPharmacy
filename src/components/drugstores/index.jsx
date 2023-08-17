@@ -192,7 +192,7 @@ export default function NewDrugstore() {
 
     return (
         <Box sx={{ p: 2, overflow: 'hidden' }}>
-            <Box component="form" validate onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
+            <Box component="form" validate="true" onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
                 <Typography component="h1" variant="h6" sx={{ my: 1 }}>
                     <AddBusinessIcon
                         sx={{
