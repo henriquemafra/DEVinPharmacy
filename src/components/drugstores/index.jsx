@@ -238,7 +238,6 @@ export default function NewDrugstore() {
                             onChange={(e) => setEndereco({ ...endereco, telefone: e.target.value })}
                             name="telefone"
                             autoComplete="telefone"
-                            autoFocus
                         />
                     </Grid>
                     <Grid item xs={12} sm={3}>
@@ -252,7 +251,6 @@ export default function NewDrugstore() {
                             autoComplete="celular"
                             value={formatPhoneNumber(endereco.celular)}
                             onChange={(e) => setEndereco({ ...endereco, celular: e.target.value })}
-                            autoFocus
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -264,7 +262,6 @@ export default function NewDrugstore() {
                             label="Razão social"
                             name="razaosocial"
                             autoComplete="razão social"
-                            autoFocus
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -276,7 +273,6 @@ export default function NewDrugstore() {
                             label="CNPJ"
                             name="cnpj"
                             autoComplete="CNPJ"
-                            autoFocus
                             value={formatCnpj(endereco.cnpj)} // Aplicando a formatação
                             onChange={(e) => setEndereco({ ...endereco, cnpj: e.target.value })}
                         />
@@ -302,7 +298,6 @@ export default function NewDrugstore() {
                             label="CEP"
                             name="cep"
                             autoComplete="cep"
-                            autoFocus
                             onBlur={(e) => pesquisacep(e.target.value)}
                             value={formatCep(endereco.cep)} // Formata o CEP antes de exibir
                             onChange={(e) => setEndereco({ ...endereco, cep: e.target.value })}
@@ -320,7 +315,6 @@ export default function NewDrugstore() {
                             label="Logradouro/Endereço"
                             name="logradouro"
                             autoComplete="logradouro"
-                            autoFocus
                             value={endereco.logradouro}
 
                         />
@@ -334,7 +328,6 @@ export default function NewDrugstore() {
                             label="Número"
                             name="numero"
                             autoComplete="numero"
-                            autoFocus
                         />
                     </Grid>
                     <Grid item xs={12} sm={3}>
@@ -346,7 +339,6 @@ export default function NewDrugstore() {
                             label="Bairro"
                             name="bairro"
                             autoComplete="bairro"
-                            autoFocus
                             value={endereco.bairro}
                         />
                     </Grid>
@@ -359,7 +351,6 @@ export default function NewDrugstore() {
                             label="Cidade"
                             name="cidade"
                             autoComplete="cidade"
-                            autoFocus
                             value={endereco.cidade}
                         />
                     </Grid>
@@ -372,7 +363,6 @@ export default function NewDrugstore() {
                             label="Estado"
                             name="estado"
                             autoComplete="estado"
-                            autoFocus
                             value={endereco.estado}
                         />
                     </Grid>
@@ -384,7 +374,6 @@ export default function NewDrugstore() {
                             label="Complemento"
                             name="complemento"
                             autoComplete="complemento"
-                            autoFocus
                         />
                     </Grid>
                 </Grid>
@@ -411,7 +400,6 @@ export default function NewDrugstore() {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            autoFocus
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -427,7 +415,6 @@ export default function NewDrugstore() {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            autoFocus
                         />
                     </Grid>
                 </Grid>

@@ -91,7 +91,6 @@ export default function NewMedicament() {
                             label="Dosagem do medicamento"
                             name="dosagem"
                             autoComplete="dosagem"
-                            autoFocus
                         />
                     </Grid>
                    
@@ -104,7 +103,6 @@ export default function NewMedicament() {
                             label="Preço unitário do medicamento"
                             name="precounid"
                             autoComplete="precounid"
-                            autoFocus
                         />
                     </Grid>
                     <Grid item xs={12} sm={3}>
@@ -116,7 +114,6 @@ export default function NewMedicament() {
                             label="Tipo do medicamento"
                             name="tipomedicamento"
                             autoComplete="tipomedicamento"
-                            autoFocus
                             
                         />
                     </Grid>
@@ -130,7 +127,6 @@ export default function NewMedicament() {
                             label="Descrição do medicamento"
                             name="descricao"
                             autoComplete="descricao"
-                            autoFocus
                         />
                     </Grid>
                 </Grid>
