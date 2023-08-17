@@ -5,9 +5,10 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import Button from '@mui/material/Button';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export default function NewDrugstore() {
+
     // MediaQuery para regular o botão de cadastro no mobile
     const isMobile = useMediaQuery('(max-width: 600px)');
 
@@ -27,6 +28,24 @@ export default function NewDrugstore() {
             return value
                 .replace(/\D/g, '') // Remove caracteres não numéricos
                 .replace(/(\d{5})(\d{1,3})/, '$1-$2'); // Adiciona o hífen após o 5º dígito
+        }
+        return value;
+    };
+    // Função para formatar o Celular e Telefone enquanto o usuário digita
+    const formatPhoneNumber = (value) => {
+        if (value) {
+            return value
+                .replace(/\D/g, '') // Remove caracteres não numéricos
+                .replace(/(\d{2})(\d{1,5})(\d{1,4})/, '($1) $2-$3'); // Formata o número de telefone
+        }
+        return value;
+    };
+    // Função para formatar o CNPJ enquanto o usuário digita
+    const formatCnpj = (value) => {
+        if (value) {
+            return value
+                .replace(/\D/g, '') // Remove caracteres não numéricos
+                .replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5'); // Formata o CNPJ
         }
         return value;
     };
@@ -84,54 +103,93 @@ export default function NewDrugstore() {
     const formRef = useRef(null);
 
     // Estado para armazenar as farmácias cadastradas
-  const [farmacias, setFarmacias] = useState([]);
+    const [farmacias, setFarmacias] = useState([]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const novaFarmacia = {
-      nomeFantasia: data.get('nomefantasia'),
-      email: data.get('email'),
-      telefone: data.get('telefone'),
-      celular: data.get('celular'),
-      razaoSocial: data.get('razaosocial'),
-      cnpj: data.get('cnpj'),
-      cep: data.get('cep'),
-      logradouro: data.get('logradouro'),
-      numero: data.get('numero'),
-      bairro: data.get('bairro'),
-      cidade: data.get('cidade'),
-      estado: data.get('estado'),
-      complemento: data.get('complemento'),
-      latitude: data.get('latitude'),
-      longitude: data.get('longitude'),
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const novaFarmacia = {
+            nomeFantasia: data.get('nomefantasia'),
+            email: data.get('email'),
+            telefone: data.get('telefone'),
+            celular: data.get('celular'),
+            razaoSocial: data.get('razaosocial'),
+            cnpj: data.get('cnpj'),
+            cep: data.get('cep'),
+            logradouro: data.get('logradouro'),
+            numero: data.get('numero'),
+            bairro: data.get('bairro'),
+            cidade: data.get('cidade'),
+            estado: data.get('estado'),
+            complemento: data.get('complemento'),
+            latitude: data.get('latitude'),
+            longitude: data.get('longitude'),
+        };
+        // Carregar dados existentes do localStorage
+        const dadosArmazenados = JSON.parse(localStorage.getItem('farmaciasData')) || [];
+
+        // Adicionar a nova farmácia ao array de farmácias existente
+        const novasFarmacias = [...dadosArmazenados, novaFarmacia];
+
+        // Armazenar o array atualizado no localStorage
+        storeFarmaciasData(novasFarmacias);
+
+        // Limpar os campos do formulário
+        if (formRef.current) {
+            formRef.current.reset();
+        }
+
+        // Limpar os campos de endereço
+        handleFormReset();
+
+        // Exibir feedback de sucesso
+        setSubmitSuccess(true);
+        console.log(novaFarmacia);
     };
-   // Carregar dados existentes do localStorage
-   const dadosArmazenados = JSON.parse(localStorage.getItem('farmaciasData')) || [];
 
-   // Adicionar a nova farmácia ao array de farmácias existente
-   const novasFarmacias = [...dadosArmazenados, novaFarmacia];
+    const storeFarmaciasData = (farmaciasData) => {
+        localStorage.setItem('farmaciasData', JSON.stringify(farmaciasData));
+    };
 
-   // Armazenar o array atualizado no localStorage
-   storeFarmaciasData(novasFarmacias);
 
-   // Limpar os campos do formulário
-   if (formRef.current) {
-       formRef.current.reset();
-   }
+    // Usa API da openstreetmap para obter os dados aproximados de geolocalização através do CEP
+    const obterGeolocalizacao = async (cep) => {
+        try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${cep}`);
+            const data = await response.json();
 
-   // Limpar os campos de endereço
-   handleFormReset();
+            if (data.length > 0) {
+                return {
+                    lat: data[0].lat,
+                    lon: data[0].lon
+                };
+            } else {
+                throw new Error('Nenhum resultado de geolocalização encontrado');
+            }
+        } catch (error) {
+            throw new Error('Erro ao obter geolocalização');
+        }
+    };
 
-   // Exibir feedback de sucesso
-   setSubmitSuccess(true);
-   console.log(novaFarmacia);
-};
+    // UseEffect para atualizar a geolocalização quando o CEP mudar
+    useEffect(() => {
+        if (endereco.cep) {
+            const formattedCep = endereco.cep.replace(/\D/g, '');
 
-const storeFarmaciasData = (farmaciasData) => {
-   localStorage.setItem('farmaciasData', JSON.stringify(farmaciasData));
-   console.log('Dados das farmácias armazenados no localStorage:', farmaciasData);
-};
+            obterGeolocalizacao(formattedCep)
+                .then(result => {
+                    setEndereco(prevEndereco => ({
+                        ...prevEndereco,
+                        latitude: result.lat,
+                        longitude: result.lon
+                    }));
+                })
+                .catch(error => {
+                    console.error('Erro ao obter geolocalização:', error);
+                });
+        }
+    }, [endereco.cep]);
+
     return (
         <Box sx={{ p: 2, overflow: 'hidden' }}>
             <Box component="form" Validate onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
@@ -176,6 +234,8 @@ const storeFarmaciasData = (farmaciasData) => {
                             fullWidth
                             id="telefone"
                             label="Telefone"
+                            value={formatPhoneNumber(endereco.telefone)}
+                            onChange={(e) => setEndereco({ ...endereco, telefone: e.target.value })}
                             name="telefone"
                             autoComplete="telefone"
                             autoFocus
@@ -190,6 +250,8 @@ const storeFarmaciasData = (farmaciasData) => {
                             label="Celular"
                             name="celular"
                             autoComplete="celular"
+                            value={formatPhoneNumber(endereco.celular)}
+                            onChange={(e) => setEndereco({ ...endereco, celular: e.target.value })}
                             autoFocus
                         />
                     </Grid>
@@ -215,6 +277,8 @@ const storeFarmaciasData = (farmaciasData) => {
                             name="cnpj"
                             autoComplete="CNPJ"
                             autoFocus
+                            value={formatCnpj(endereco.cnpj)} // Aplicando a formatação
+                            onChange={(e) => setEndereco({ ...endereco, cnpj: e.target.value })}
                         />
                     </Grid>
                 </Grid>
@@ -343,6 +407,10 @@ const storeFarmaciasData = (farmaciasData) => {
                             label="Latitude"
                             name="latitude"
                             autoComplete="latitude"
+                            value={endereco.latitude}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                             autoFocus
                         />
                     </Grid>
@@ -355,6 +423,10 @@ const storeFarmaciasData = (farmaciasData) => {
                             label="Longitude"
                             name="longitude"
                             autoComplete="longitude"
+                            value={endereco.longitude ?? ''}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                             autoFocus
                         />
                     </Grid>
