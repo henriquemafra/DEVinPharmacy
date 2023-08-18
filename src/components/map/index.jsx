@@ -1,10 +1,32 @@
 import '../../../node_modules/leaflet/dist/leaflet.css'
-import React from 'react';
+import { useState, useEffect, React } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Container, Typography } from '@mui/material';
+import { newPharmacies } from '../drugstores/pharmaExamples'
 
 
 export default function Map() {
+
+  // Estado para armazenar dados das farmácias
+  const [farmaciasData, setFarmaciasData] = useState([]);
+
+  // useEffect para carregar dados do localStorage quando o componente for montado
+  useEffect(() => {
+    // Recupera os dados armazenados do localStorage
+    const storedData = localStorage.getItem('farmaciasData');
+    const data = JSON.parse(storedData);
+
+    // Verifica se os dados estão ausentes ou vazios
+    if (!data || data.length === 0) {
+      // Injeta os dados do newPharmacies no localStorage
+      localStorage.setItem('farmaciasData', JSON.stringify(newPharmacies));
+      // Define o estado farmaciasData com newPharmacies
+      setFarmaciasData(newPharmacies);
+    } else {
+      // Define o estado farmaciasData com os dados armazenados
+      setFarmaciasData(data);
+    }
+  }, []);
 
   // Obtem os dados do localStorage
   const storedData = localStorage.getItem('farmaciasData');

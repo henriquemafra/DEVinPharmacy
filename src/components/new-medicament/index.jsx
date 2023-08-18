@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { Box, TextField, Grid, Select, MenuItem, InputLabel, Typography, useMediaQuery, Alert, Button } from '@mui/material';
-import MedicationIcon from '@mui/icons-material/Medication';
+import { Box, TextField, Grid, Select, MenuItem, InputLabel, Paper, Typography, useMediaQuery, Alert, Button } from '@mui/material';
+
 
 export default function NewMedicament() {
     // Definindo se a tela é mobile
@@ -54,20 +54,31 @@ const handleTipomedicamentoChange = (event) => {
 
 
     return (
-        <Box sx={{ p: 2, overflow: 'hidden' }}>
+        <Box sx={{ p: 2,  overflow: 'hidden', borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}> 
             <Box component="form" Validate onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
-                <Box sx={{ display: 'flex', mb: 3 }}>
-                    <MedicationIcon
-                        sx={{
-                            color: 'rgba(0, 0, 0, 0.54)',
-                            fontSize: '30px',
-                            mr:1
-                        }} />
-                    <Typography variant='subtitle1' sx={{ mt: 0.3 }} >
-                        Informações do medicamento
+            <Box fullWidth sx={{ display: 'flex', mb:-1.1}}>
+            
+            <Typography variant='h4' sx={{ my:0, mb: 0.5 }} >
+              Cadastrar
+            </Typography>
+          </Box>
+          <Typography variant='p' color='text.secondary' sx={{mb: 3}}>Adicionar novo produto ao catálogo</Typography>
+                <Box sx={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.12)'   }}>
+                    <Typography variant='h6' sx={{ mt: 2 , mb: -0.5}} >
+                        Informações
                     </Typography>
                 </Box>
-                <Grid container spacing={2}>
+                <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Preencha adequadamente todos os campos, 
+                caso necessário consulte o manual de ajuda.</Typography>
+                <Paper
+                            sx={{
+                                pt: 1,
+                                px: 5,
+                                pb: 3,
+                                mt: 3
+                            }}
+                        >
+                <Grid container sx={{mt: 2}} spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <InputLabel sx={{mt:-1}} id="tipomedicamento-label">Tipo do medicamento:</InputLabel>
                         <Select
@@ -81,7 +92,7 @@ const handleTipomedicamentoChange = (event) => {
                             
                         >
                             <MenuItem value="Medicamento controlado">Medicamento controlado</MenuItem>
-                            <MenuItem value="Medicamento comum">Medicamento comum</MenuItem>
+                            <MenuItem value="Medicamento não controlado">Medicamento não controlado</MenuItem>
                         </Select>
                     </Grid>
 
@@ -156,6 +167,7 @@ const handleTipomedicamentoChange = (event) => {
                         />
                     </Grid>
                 </Grid>
+                </Paper>
                 {submitSuccess && (
                     <Alert severity="success" sx={{ mt: 2, textAlign: 'center' }}>
                         Medicamento cadastrado com sucesso!

@@ -1,9 +1,6 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Grid, Typography, useMediaQuery, Alert } from '@mui/material';
-import AddBusinessIcon from '@mui/icons-material/AddBusiness';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
-import GpsFixedIcon from '@mui/icons-material/GpsFixed';
+import { Grid, Typography, useMediaQuery, Paper, Alert } from '@mui/material';
 import Button from '@mui/material/Button';
 import React, { useState, useRef, useEffect } from 'react';
 
@@ -197,20 +194,30 @@ export default function NewDrugstore() {
 
 
     return (
-        <Box sx={{ p: 2, overflow: 'hidden' }}>
+        <Box sx={{ p: 2, overflow: 'hidden' , borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}>
             <Box component="form" validate onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
-            <Box sx={{ display: 'flex', my: 1}}>
-                <AddBusinessIcon
-                        sx={{
-                            color: 'rgba(0, 0, 0, 0.54)',
-                            fontSize: '30px',
-                            mr: 1
-                        }} />
-                <Typography variant='subtitle1' sx={{ mt: 0.3}} >
-                   
-                Identificação
-               </Typography>
-               </Box>
+            <Box fullWidth sx={{ display: 'flex', mb:-1.1 }}>
+            
+            <Typography variant='h4' sx={{ my:0, mb: 0.5 }} >
+              Cadastrar
+            </Typography>
+          </Box>
+          <Typography variant='p' color='text.secondary' sx={{mb: 3}}>Cadastro de nova farmácia</Typography>
+                <Box sx={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.12);'  }}>
+                    <Typography variant='h6' sx={{ mt: 2 , mb: -0.5}} >
+                        Identificação
+                    </Typography>
+                </Box>
+                <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Preencha adequadamente todos os campos, 
+                caso necessário consulte o manual de ajuda.</Typography>
+                <Paper
+                            sx={{
+                                pt: 1,
+                                px: 5,
+                                pb: 3,
+                                mt: 3
+                            }}
+                        >
                 <Grid container spacing={2}>
 
                     <Grid item xs={12} sm={3}>
@@ -286,17 +293,22 @@ export default function NewDrugstore() {
                         />
                     </Grid>
                 </Grid>
-                <Box sx={{ display: 'flex', my: 1}}>
-                <LocationCityIcon
-                        sx={{
-                            color: 'rgba(0, 0, 0, 0.54)',
-                            fontSize: '30px',
-                            mr: 1
-                        }} />
-                <Typography variant='subtitle1' sx={{ mt: 0.3}} >
-                Endereço
-               </Typography>
-               </Box>
+                </Paper>
+                <Box sx={{ display: 'flex',  }}>
+                    <Typography variant='h6' sx={{ mt: 2 , mb: -0.5}} >
+                        Endereço
+                    </Typography>
+                </Box>
+                <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Preencha adequadamente todos os campos, 
+                caso necessário consulte o manual de ajuda.</Typography>
+                <Paper
+                            sx={{
+                                pt: 1,
+                                px: 5,
+                                pb: 3,
+                                mt: 3
+                            }}
+                        >
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={3}>
                         <TextField
@@ -391,17 +403,22 @@ export default function NewDrugstore() {
                         />
                     </Grid>
                 </Grid> 
-                <Box sx={{ display: 'flex', my: 1}}>
-                <GpsFixedIcon
-                        sx={{
-                            color: 'rgba(0, 0, 0, 0.54)',
-                            fontSize: '30px',
-                            mr: 1
-                        }} />
-                <Typography variant='subtitle1' sx={{ mt: 0.3}} >
-                   Geolocalização
-               </Typography>
-               </Box>
+                </Paper>
+                <Box sx={{ display: 'flex',  }}>
+                    <Typography variant='h6' sx={{ mt: 2 , mb: -0.5}} >
+                        Geolocalização
+                    </Typography>
+                </Box>
+                <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Antes de finalizar o cadastro, confira se a coordenadas estão corretas. 
+                Caso não saiba como realizar o teste <a style={{textDecoration: 'none', color: '#04005D'}} target='_newBlank' href="https://google.com">clique aqui</a>.</Typography>
+                <Paper
+                            sx={{
+                                pt: 1,
+                                px: 5,
+                                pb: 3,
+                                mt: 3
+                            }}
+                        >
                 <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                         <TextField
@@ -436,6 +453,7 @@ export default function NewDrugstore() {
                         />
                     </Grid>
                 </Grid>
+                </Paper>
                 {submitSuccess && (
                     <Alert severity="success" sx={{ mt: 2, textAlign: 'center' }}>
                         Cadastro realizado com sucesso!
