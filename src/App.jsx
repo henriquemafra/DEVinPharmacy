@@ -18,7 +18,13 @@ function App() {
     palette: {
       ...customColors,
     },
+    typography: {
+      subtitle1: {
+        fontSize: 18,
+      },
+    },
   });
+
 
   return (
     <ThemeProvider theme={customTheme}>

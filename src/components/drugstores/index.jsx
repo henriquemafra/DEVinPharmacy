@@ -199,16 +199,18 @@ export default function NewDrugstore() {
     return (
         <Box sx={{ p: 2, overflow: 'hidden' }}>
             <Box component="form" validate onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
-                <Typography component="h1" variant="h6" sx={{ my: 1 }}>
-                    <AddBusinessIcon
+            <Box sx={{ display: 'flex', my: 1}}>
+                <AddBusinessIcon
                         sx={{
                             color: 'rgba(0, 0, 0, 0.54)',
                             fontSize: '30px',
-                            mx: 1
+                            mr: 1
                         }} />
-
-                    Identificação
-                </Typography>
+                <Typography variant='subtitle1' sx={{ mt: 0.3}} >
+                   
+                Identificação
+               </Typography>
+               </Box>
                 <Grid container spacing={2}>
 
                     <Grid item xs={12} sm={3}>
@@ -284,15 +286,17 @@ export default function NewDrugstore() {
                         />
                     </Grid>
                 </Grid>
-                <Typography component="h1" variant="h6" sx={{ my: 1 }}>
-                    <LocationCityIcon
+                <Box sx={{ display: 'flex', my: 1}}>
+                <LocationCityIcon
                         sx={{
                             color: 'rgba(0, 0, 0, 0.54)',
                             fontSize: '30px',
-                            mx: 1
+                            mr: 1
                         }} />
-                    Endereço
-                </Typography>
+                <Typography variant='subtitle1' sx={{ mt: 0.3}} >
+                Endereço
+               </Typography>
+               </Box>
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={3}>
                         <TextField
@@ -386,18 +390,20 @@ export default function NewDrugstore() {
                             autoComplete="complemento"
                         />
                     </Grid>
-                </Grid>
-                <Typography component="h1" variant="h6" sx={{ my: 1 }}>
-                    <GpsFixedIcon
+                </Grid> 
+                <Box sx={{ display: 'flex', my: 1}}>
+                <GpsFixedIcon
                         sx={{
                             color: 'rgba(0, 0, 0, 0.54)',
                             fontSize: '30px',
-                            mx: 1
+                            mr: 1
                         }} />
-                    Geolocalização
-                </Typography>
+                <Typography variant='subtitle1' sx={{ mt: 0.3}} >
+                   Geolocalização
+               </Typography>
+               </Box>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                         <TextField
                             margin="normal"
                             fullWidth
