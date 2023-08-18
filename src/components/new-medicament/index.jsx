@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Box, TextField, Grid, Typography, useMediaQuery, Alert, Button } from '@mui/material';
+import { Box, TextField, Grid, Select, MenuItem, InputLabel, Typography, useMediaQuery, Alert, Button } from '@mui/material';
 import MedicationIcon from '@mui/icons-material/Medication';
 
 export default function NewMedicament() {
@@ -20,9 +20,11 @@ export default function NewMedicament() {
             nomeMedicamento: data.get('nomemedicamento'),
             laboratorio: data.get('nomelaboratorio'),
             dosagem: data.get('dosagem'),
+            descricaoBreve: data.get('descricaoBreve'),
             descricao: data.get('descricao'),
             precounid: data.get('precounid'),
-            tipo: data.get('tipomedicamento'),
+            tipo: tipomedicamentoValue,
+            
         };
         // obtem dados existentes no armazenamento local
         const dadosArmazenados = JSON.parse(localStorage.getItem('MedicamentosData')) || [];
@@ -44,23 +46,46 @@ export default function NewMedicament() {
         localStorage.setItem('MedicamentosData', JSON.stringify(MedicamentosData));
     };
 
+    const [tipomedicamentoValue, setTipomedicamentoValue] = React.useState(''); // Estado para o valor selecionado
+
+const handleTipomedicamentoChange = (event) => {
+  setTipomedicamentoValue(event.target.value); // Atualiza o valor selecionado
+};
+
+
     return (
         <Box sx={{ p: 2, overflow: 'hidden' }}>
             <Box component="form" Validate onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
-                <Box sx={{ display: 'flex', my: 1 }}>
+                <Box sx={{ display: 'flex', mb: 3 }}>
                     <MedicationIcon
                         sx={{
                             color: 'rgba(0, 0, 0, 0.54)',
                             fontSize: '30px',
-                            mx: 1
+                            mr:1
                         }} />
                     <Typography variant='subtitle1' sx={{ mt: 0.3 }} >
                         Informações do medicamento
                     </Typography>
                 </Box>
                 <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <InputLabel sx={{mt:-1}} id="tipomedicamento-label">Tipo do medicamento:</InputLabel>
+                        <Select
+                            
+                            labelId="tipomedicamento-label"
+                            id="tipomedicamento"
+                            value={tipomedicamentoValue} // Defina o valor selecionado (estado)
+                            onChange={handleTipomedicamentoChange} // Função para lidar com a mudança
+                            label="Tipo do medicamento"
+                            fullWidth
+                            
+                        >
+                            <MenuItem value="Medicamento controlado">Medicamento controlado</MenuItem>
+                            <MenuItem value="Medicamento comum">Medicamento comum</MenuItem>
+                        </Select>
+                    </Grid>
 
-                    <Grid item xs={12} sm={4}>
+                    <Grid item xs={12} sm={6}>
                         <TextField
                             margin="normal"
                             required
@@ -95,7 +120,7 @@ export default function NewMedicament() {
                         />
                     </Grid>
 
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={4}>
                         <TextField
                             margin="normal"
                             required
@@ -106,16 +131,16 @@ export default function NewMedicament() {
                             autoComplete="precounid"
                         />
                     </Grid>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={6}>
                         <TextField
                             margin="normal"
                             required
                             fullWidth
-                            id="tipomedicamento"
-                            label="Tipo do medicamento"
-                            name="tipomedicamento"
-                            autoComplete="tipomedicamento"
-
+                            multiline
+                            id="descricaoBreve"
+                            label="Breve descrição"
+                            name="descricaoBreve"
+                            autoComplete="descricaoBreve"
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
