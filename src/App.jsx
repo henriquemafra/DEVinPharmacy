@@ -20,7 +20,7 @@ function App() {
     },
     typography: {
       subtitle1: {
-        fontSize: 18,
+        fontSize: 17,
       },
     },
   });
@@ -31,7 +31,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage />} />
-          <Route path='/dashboard' element={<Dashboard />} />        
+          <Route path='/dashboard/*' element={<Dashboard />} />        
         </Routes>
       </Router>
     </ThemeProvider>
