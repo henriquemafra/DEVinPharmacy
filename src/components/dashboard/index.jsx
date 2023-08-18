@@ -7,8 +7,7 @@ import { Routes, Route  } from 'react-router-dom';
 import NewDrugstore from '../drugstores';
 import NewMedicament from '../new-medicament';
 import Map from '../map';
-
-
+import Medicaments from '../listMedicaments';
 
 // Largura da Gaveta
 const drawerWidth = 240;
@@ -172,6 +171,7 @@ export default function Dashboard() {
                             <Route path="/newpharmacy" element={<NewDrugstore />} />
                             <Route path="/newmedicament" element={<NewMedicament />} />
                             <Route path="/map" element={<Map />} />
+                            <Route path="/medicaments" element={<Medicaments/>} />
                         </Routes>
                         </Paper>
                     </Container>
