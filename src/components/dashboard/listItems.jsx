@@ -22,19 +22,19 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Medicamentos" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/dashboard/newmedicament">
       <ListItemIcon>
         <AddBoxIcon />
       </ListItemIcon>
       <ListItemText primary="Novo Medicamento" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/dashboard/newpharmacy">
       <ListItemIcon>
         <AddBusinessIcon />
       </ListItemIcon>
       <ListItemText primary="Nova Farmácia" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/dashboard/map">
       <ListItemIcon>
         <MapIcon />
       </ListItemIcon>
