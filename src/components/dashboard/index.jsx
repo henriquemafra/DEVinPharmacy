@@ -1,22 +1,14 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiDrawer from '@mui/material/Drawer';
-import Box from '@mui/material/Box';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import React from 'react';
+import { styled, useTheme } from '@mui/material/styles';
+import { CssBaseline, Drawer as MuiDrawer, Box, AppBar as MuiAppBar, Toolbar, List, Typography, Divider, IconButton, Badge, Container, Paper } from '@mui/material';
+import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon, Notifications as NotificationsIcon } from '@mui/icons-material';
 import { mainListItems, secondaryListItems } from './listItems';
+import { Routes, Route  } from 'react-router-dom';
 import NewDrugstore from '../drugstores';
+import NewMedicament from '../new-medicament';
+import Map from '../map';
+
+
 
 // Largura da Gaveta
 const drawerWidth = 240;
@@ -68,6 +60,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function Dashboard() {
+
+    const theme = useTheme();
+
+
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -98,7 +94,7 @@ export default function Dashboard() {
                     <img
                         style={{  }}
                         alt="Logo"
-                        src="src\assets\img\logoSM.png"
+                        src="\src\assets\img\logoSM.png"
                         width="50"
                         height="50"
                     /> 
@@ -136,7 +132,7 @@ export default function Dashboard() {
                     <img
                         style={{ padding: '5px' }}
                         alt="Logo"
-                        src="src\assets\img\logo.png"
+                        src="\src\assets\img\logo.png"
                         width="180"
                         height="45"
                     />
@@ -161,7 +157,7 @@ export default function Dashboard() {
                 }}
             >
                 <Toolbar />
-                <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+                <Container maxWidth="lg" sx={{ mt: 4, mb: 4}}>
                     <Container item xs={12} md={6} lg={12}>
                         <Paper
                             sx={{
@@ -170,7 +166,13 @@ export default function Dashboard() {
                                 height: 'contain',
                             }}
                         >
-                            <NewDrugstore/>
+                           <Routes>
+                            {/* Rotas internas para as opções do menu*/}
+                            <Route path="/" element={<NewDrugstore />} />
+                            <Route path="/newpharmacy" element={<NewDrugstore />} />
+                            <Route path="/newmedicament" element={<NewMedicament />} />
+                            <Route path="/map" element={<Map />} />
+                        </Routes>
                         </Paper>
                     </Container>
                 </Container>
