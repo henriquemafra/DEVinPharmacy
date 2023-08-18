@@ -51,7 +51,7 @@ export default function NewDrugstore() {
     };
 
     // Logica de implementação do autocomplete viaCEP
-    const pesquisacep = async (valor) => {
+    const pesquisaCep = async (valor) => {
         const cep = valor.replace(/\D/g, '');
 
         if (cep.length === 8) {
@@ -152,15 +152,15 @@ export default function NewDrugstore() {
     };
 
 
-    // Usa API da openstreetmap para obter os dados aproximados de geolocalização através do CEP
+    // Usa API da Google para obter os dados aproximados de geolocalização através do CEP
     const obterGeolocalizacao = async (endereco) => {
         try {
-            const apiKey = 'AIzaSyB__bX2Rwc-3E7A9luN09-r7LetvLnINoo';
+            const apiKey = 'AIzaSyB__bX2Rwc-3E7A9luN09-r7LetvLnINoo'; // remover após entrega do projeto.
             const formattedEndereco = encodeURIComponent(endereco);
-    
+
             const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedEndereco}&key=${apiKey}`);
             const data = await response.json();
-    console.log(data)
+            console.log(data)
             if (data.results.length > 0) {
                 const location = data.results[0].geometry.location;
                 return {
@@ -174,13 +174,13 @@ export default function NewDrugstore() {
             throw new Error('Erro ao obter geolocalização');
         }
     };
-    
+
 
     // UseEffect para atualizar a geolocalização quando o CEP mudar
     useEffect(() => {
         if (endereco.cep) {
             const formattedCep = endereco.cep.replace(/\D/g, '');
-    
+
             obterGeolocalizacao(formattedCep)
                 .then(result => {
                     setEndereco(prevEndereco => ({
@@ -194,7 +194,7 @@ export default function NewDrugstore() {
                 });
         }
     }, [endereco.cep]);
-    
+
 
     return (
         <Box sx={{ p: 2, overflow: 'hidden' }}>
@@ -304,7 +304,7 @@ export default function NewDrugstore() {
                             label="CEP"
                             name="cep"
                             autoComplete="cep"
-                            onBlur={(e) => pesquisacep(e.target.value)}
+                            onBlur={(e) => pesquisaCep(e.target.value)}
                             value={formatCep(endereco.cep)} // Formata o CEP antes de exibir
                             onChange={(e) => setEndereco({ ...endereco, cep: e.target.value })}
                         />
@@ -321,7 +321,8 @@ export default function NewDrugstore() {
                             label="Logradouro/Endereço"
                             name="logradouro"
                             autoComplete="logradouro"
-                            value={endereco.logradouro}
+                            value={endereco.logradouro ?? ''}
+                            onChange={(e) => setEndereco({ ...endereco, logradouro: e.target.value })}
 
                         />
                     </Grid>
@@ -346,6 +347,7 @@ export default function NewDrugstore() {
                             name="bairro"
                             autoComplete="bairro"
                             value={endereco.bairro}
+                            onChange={(e) => setEndereco({ ...endereco, bairro: e.target.value })}
                         />
                     </Grid>
                     <Grid item xs={12} sm={3}>
@@ -358,6 +360,7 @@ export default function NewDrugstore() {
                             name="cidade"
                             autoComplete="cidade"
                             value={endereco.cidade}
+                            onChange={(e) => setEndereco({ ...endereco, cidade: e.target.value })}
                         />
                     </Grid>
                     <Grid item xs={12} sm={3}>
@@ -370,6 +373,7 @@ export default function NewDrugstore() {
                             name="estado"
                             autoComplete="estado"
                             value={endereco.estado}
+                            onChange={(e) => setEndereco({ ...endereco, estado: e.target.value })}
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -403,6 +407,7 @@ export default function NewDrugstore() {
                             name="latitude"
                             autoComplete="latitude"
                             value={endereco.latitude}
+                            onChange={(e) => setEndereco({ ...endereco, latitude: e.target.value })}
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -417,7 +422,8 @@ export default function NewDrugstore() {
                             label="Longitude"
                             name="longitude"
                             autoComplete="longitude"
-                            value={endereco.longitude ?? ''}
+                            value={endereco.longitude}
+                            onChange={(e) => setEndereco({ ...endereco, longitude: e.target.value })}
                             InputLabelProps={{
                                 shrink: true,
                             }}
