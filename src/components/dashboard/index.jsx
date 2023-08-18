@@ -156,15 +156,7 @@ export default function Dashboard() {
                 }}
             >
                 <Toolbar />
-                <Container maxWidth="lg" sx={{ mt: 4, mb: 4}}>
-                    <Container item xs={12} md={6} lg={12}>
-                        <Paper
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: 'contain',
-                            }}
-                        >
+                <Container maxWidth="lg" sx={{ my:3}}>
                            <Routes>
                             {/* Rotas internas para as opções do menu*/}
                             <Route path="/" element={<NewDrugstore />} />
@@ -173,8 +165,6 @@ export default function Dashboard() {
                             <Route path="/map" element={<Map />} />
                             <Route path="/medicaments" element={<Medicaments/>} />
                         </Routes>
-                        </Paper>
-                    </Container>
                 </Container>
             </Box>
         </Box>
