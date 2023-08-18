@@ -119,36 +119,33 @@ const filteredMedicamentos = allMedicamentos.filter(medicamento =>
     <Box container sx={{ p:2}}>
       <Grid container sx={{ p: 1 }} spacing={1}>
         <Grid item xs={12} sm={9}>
-          <Box sx={{ display: 'flex' }}>
-            <MedicationIcon
-              sx={{
-                color: 'rgba(0, 0, 0, 0.54)',
-                fontSize: '30px',
-                mr: 1
-              }} />
-            <Typography variant='subtitle1' sx={{ mt: 0.3 }} >
-              Medicamentos
+          <Box fullWidth sx={{ display: 'flex', mb:-1.1 }}>
+            
+            <Typography variant='h4' sx={{ my:0 }} >
+              Medicamentos <br/>
             </Typography>
           </Box>
+          <Typography variant='p' color='text.secondary'>Produtos em estoque</Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
           <TextField
             label="Pesquisar medicamentos"
             type="search"
             size="small"
+            variant='outlined'
             value={searchTerm}
             onChange={event => setSearchTerm(event.target.value)}
             fullWidth
           />
         </Grid>
       </Grid>
-      <Grid container sx={{ p: 2 }} spacing={3}>
+      <Grid container sx={{ p: 4 }} spacing={3}>
         {filteredMedicamentos.map((medicamento, index) => (
           <Grid item key={index} xs={12} sm={4}>
             <Paper elevation={1} >
               <Card sx={{ height: 'contain' }}>
 
-                <CardContent sx={{ p: 3 }}>
+                <CardContent sx={{ p: 3, zoom:'105%'}}>
                   <Typography variant="h6" fontSize={'16px'} >
                     {medicamento.nomeMedicamento}
                   </Typography>
