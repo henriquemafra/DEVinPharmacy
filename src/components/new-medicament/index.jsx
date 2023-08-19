@@ -54,50 +54,49 @@ const handleTipomedicamentoChange = (event) => {
 
 
     return (
-        <Box sx={{ p: 2,  overflow: 'hidden', borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}> 
-            <Box component="form" Validate onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
-            <Box fullWidth sx={{ display: 'flex', mb:-1.1}}>
+        <Box sx={{ p: 2, pl: 0,  overflow: 'hidden', borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}> 
+            <Box component="form" Validate onSubmit={handleSubmit} ref={formRef} sx={{  overflow: 'hidden' }}>
+            <Box fullWidth sx={{ display: 'flex'}}>
             
-            <Typography variant='h4' sx={{ my:0, mb: 0.5 }} >
+            <Typography variant='h4' fontWeight="bold"  sx={{ mt: 1 }}>
               Cadastrar
             </Typography>
           </Box>
-          <Typography variant='p' color='text.secondary' sx={{mb: 3}}>Adicionar novo produto ao catálogo</Typography>
+          <Typography variant='p' color='text.secondary' >Adicionar novo produto ao catálogo.</Typography>
                 <Box sx={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.12)'   }}>
-                    <Typography variant='h6' sx={{ mt: 2 , mb: -0.5}} >
+                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 1 }} >
                         Informações
                     </Typography>
                 </Box>
-                <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Preencha adequadamente todos os campos, 
+                <Typography variant='p' sx={{mb: 1}} color='text.secondary'>Preencha adequadamente todos os campos, 
                 caso necessário consulte o manual de ajuda.</Typography>
                 <Paper
                             sx={{
                                 pt: 1,
                                 px: 5,
                                 pb: 3,
-                                mt: 3
+                                mt: 1
                             }}
                         >
-                <Grid container sx={{mt: 2}} spacing={2}>
-                <Grid item xs={12} sm={6}>
-                    <InputLabel sx={{mt:-1}} id="tipomedicamento-label">Tipo do medicamento:</InputLabel>
+                <Grid container spacing={2}>
+                <Grid item xs={12} sm={4}>
+                    <InputLabel id="tipomedicamento-label">Tipo do medicamento:</InputLabel>
                         <Select
-                            
+                            required
                             labelId="tipomedicamento-label"
                             id="tipomedicamento"
                             value={tipomedicamentoValue} // Defina o valor selecionado (estado)
                             onChange={handleTipomedicamentoChange} // Função para lidar com a mudança
                             label="Tipo do medicamento"
                             fullWidth
-                            
                         >
                             <MenuItem value="Medicamento controlado">Medicamento controlado</MenuItem>
                             <MenuItem value="Medicamento não controlado">Medicamento não controlado</MenuItem>
                         </Select>
                     </Grid>
-
-                    <Grid item xs={12} sm={6}>
+                    <Grid item sx={{mt: 0.9}} xs={12} sm={8}>
                         <TextField
+                            
                             margin="normal"
                             required
                             fullWidth

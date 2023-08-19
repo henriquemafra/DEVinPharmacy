@@ -194,17 +194,17 @@ export default function NewDrugstore() {
 
 
     return (
-        <Box sx={{ p: 2, overflow: 'hidden' , borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}>
-            <Box component="form" validate onSubmit={handleSubmit} ref={formRef} sx={{ px: 2, overflow: 'hidden' }}>
-            <Box fullWidth sx={{ display: 'flex', mb:-1.1 }}>
+        <Box sx={{ p: 2, pl: 0, overflow: 'hidden' , borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}>
+            <Box component="form" validate onSubmit={handleSubmit} ref={formRef} sx={{ overflow: 'hidden' }}>
+            <Box fullWidth sx={{ display: 'flex'}}>
             
-            <Typography variant='h4' sx={{ my:0, mb: 0.5 }} >
+            <Typography variant='h4'fontWeight="bold"  sx={{ mt: 1 }}>
               Cadastrar
             </Typography>
           </Box>
-          <Typography variant='p' color='text.secondary' sx={{mb: 3}}>Cadastro de nova farmácia</Typography>
+          <Typography variant='p' component="div" color='text.secondary' >Cadastro de nova farmácia</Typography>
                 <Box sx={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.12);'  }}>
-                    <Typography variant='h6' sx={{ mt: 2 , mb: -0.5}} >
+                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2 , mb: -0.5}} >
                         Identificação
                     </Typography>
                 </Box>
@@ -215,7 +215,7 @@ export default function NewDrugstore() {
                                 pt: 1,
                                 px: 5,
                                 pb: 3,
-                                mt: 3
+                                mt: 1
                             }}
                         >
                 <Grid container spacing={2}>
@@ -295,7 +295,7 @@ export default function NewDrugstore() {
                 </Grid>
                 </Paper>
                 <Box sx={{ display: 'flex',  }}>
-                    <Typography variant='h6' sx={{ mt: 2 , mb: -0.5}} >
+                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2 , mb: -0.5}} >
                         Endereço
                     </Typography>
                 </Box>
@@ -405,7 +405,7 @@ export default function NewDrugstore() {
                 </Grid> 
                 </Paper>
                 <Box sx={{ display: 'flex',  }}>
-                    <Typography variant='h6' sx={{ mt: 2 , mb: -0.5}} >
+                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2 , mb: -0.5}} >
                         Geolocalização
                     </Typography>
                 </Box>

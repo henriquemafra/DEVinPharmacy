@@ -2,6 +2,7 @@ import Dashboard from './components/dashboard';
 import LoginPage from './components/login-page';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import '@fontsource/roboto/300.css';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       ...customColors,
     },
     typography: {
+      fontFamily: 'Roboto, sans-serif', // Defina a fonte Roboto Thin
       subtitle1: {
         fontSize: 17,
       },
