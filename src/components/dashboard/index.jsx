@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import { CssBaseline, Drawer as MuiDrawer, Box, AppBar as MuiAppBar, Toolbar, List, Typography, Divider, IconButton, Badge, Container, Paper } from '@mui/material';
+import { CssBaseline, Drawer as MuiDrawer, Box, AppBar as MuiAppBar, Toolbar, List, Typography, ListItemButton, Divider, IconButton, Badge, Container, Paper } from '@mui/material';
 import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon, Notifications as NotificationsIcon } from '@mui/icons-material';
-import { mainListItems, secondaryListItems } from './listItems';
-import { Routes, Route  } from 'react-router-dom';
+import { mainListItems, secondaryListItems, terciaryListItems } from './listItems';
+import { Routes, Route } from 'react-router-dom';
 import NewDrugstore from '../drugstores';
 import NewMedicament from '../new-medicament';
 import Map from '../map';
@@ -51,7 +51,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
                 }),
                 width: theme.spacing(7),
                 [theme.breakpoints.up('sm')]: {
-                    width: theme.spacing(9),
+                    width: theme.spacing(7),
                 },
             }),
         },
@@ -63,7 +63,7 @@ export default function Dashboard() {
     const theme = useTheme();
 
 
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
     const toggleDrawer = () => {
         setOpen(!open);
     };
@@ -91,23 +91,24 @@ export default function Dashboard() {
                         <MenuIcon />
                     </IconButton>
                     <img
-                        style={{  }}
+                        style={{}}
                         alt="Logo"
                         src="\src\assets\img\logoSM.png"
                         width="50"
                         height="50"
-                    /> 
+                    />
                     <Typography
                         component="p"
                         variant="p"
                         color="inherit"
                         fontWeight="bold"
                         noWrap
-                        sx={{ 
+                        sx={{
                             flexGrow: 1,
-                            ml: 1  }}
+                            ml: 1
+                        }}
                     >
-                       Medication Management
+                        Medication Management
                     </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={1} color="error">
@@ -141,6 +142,14 @@ export default function Dashboard() {
                     {mainListItems} {/* Chama a lista de opções principais do menu. */}
                     <Divider sx={{ my: 1 }} />
                     {secondaryListItems} {/* Chama a lista secundária de opções do menu. */}
+                    <Divider sx={{
+                        mt: 34, [theme.breakpoints.up('sm')]: {
+                            mt: 33,
+                        },
+                    }} />
+                    <Box sx={{mt: 1}}>
+                    {terciaryListItems}
+                    </Box>
                 </List>
             </Drawer>
             <Box
@@ -156,15 +165,15 @@ export default function Dashboard() {
                 }}
             >
                 <Toolbar />
-                <Container maxWidth="lg" sx={{ my:3}}>
-                           <Routes>
-                            {/* Rotas internas para as opções do menu*/}
-                            <Route path="/" element={<NewDrugstore />} />
-                            <Route path="/newpharmacy" element={<NewDrugstore />} />
-                            <Route path="/newmedicament" element={<NewMedicament />} />
-                            <Route path="/map" element={<Map />} />
-                            <Route path="/medicaments" element={<Medicaments/>} />
-                        </Routes>
+                <Container maxWidth="lg" sx={{ my: 3 }}>
+                    <Routes>
+                        {/* Rotas internas para as opções do menu*/}
+                        <Route path="/" element={<NewDrugstore />} />
+                        <Route path="/newpharmacy" element={<NewDrugstore />} />
+                        <Route path="/newmedicament" element={<NewMedicament />} />
+                        <Route path="/map" element={<Map />} />
+                        <Route path="/medicaments" element={<Medicaments />} />
+                    </Routes>
                 </Container>
             </Box>
         </Box>
