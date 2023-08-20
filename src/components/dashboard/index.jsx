@@ -109,7 +109,7 @@ export default function Dashboard() {
                             ml: 1
                         }}
                     >
-                        Medication Management
+                        Medicament Management
                     </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={1} color="error">
