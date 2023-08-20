@@ -40,12 +40,6 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Mapa de Farmácias" />
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <HelpCenterIcon />
-      </ListItemIcon>
-      <ListItemText primary="Precisa de ajuda?" />
-    </ListItemButton>
   </React.Fragment>
 );
 
@@ -61,6 +55,19 @@ export const secondaryListItems = (
       <ListItemText primary="Notificações" />
     </ListItemButton>
     <ListItemButton>
+      <ListItemIcon>
+        <HelpCenterIcon />
+      </ListItemIcon>
+      <ListItemText primary="Ajuda" />
+    </ListItemButton>
+  </React.Fragment>
+
+ 
+);
+
+export const terciaryListItems = (
+  <React.Fragment>
+    <ListItemButton>
       <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
         <ListItemIcon>
           <LogoutIcon />
@@ -68,6 +75,6 @@ export const secondaryListItems = (
         <ListItemText primary="Sair" />
         </Link>
     </ListItemButton>
-    
   </React.Fragment>
+
 );
