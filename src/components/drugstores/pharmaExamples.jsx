@@ -66,8 +66,8 @@ export const newPharmacies = [
       "cidade": "Florianopolis",
       "estado": "SC",
       "complemento": "",
-      "latitude": "-27.654",
-      "longitude": "-48.487"
+      "latitude": "-27.5750997471685",
+      "longitude": "-48.538306501377406"
     },
     {
       "nomeFantasia": "BelaVida",
@@ -83,8 +83,8 @@ export const newPharmacies = [
       "cidade": "Florianopolis",
       "estado": "SC",
       "complemento": "",
-      "latitude": "-27.598",
-      "longitude": "-48.445"
+      "latitude": "-27.590718863903703",
+      "longitude": "-48.509254405109964"
     },
     {
       "nomeFantasia": "Farmanova",
@@ -117,8 +117,8 @@ export const newPharmacies = [
       "cidade": "Florianopolis",
       "estado": "SC",
       "complemento": "",
-      "latitude": "-27.432",
-      "longitude": "-48.496"
+      "latitude": "-27.603099153127644",
+      "longitude": "-48.536510454412884"
     },
     {
       "nomeFantasia": "FlorPharma",
@@ -134,8 +134,8 @@ export const newPharmacies = [
       "cidade": "Florianopolis",
       "estado": "SC",
       "complemento": "",
-      "latitude": "-27.432",
-      "longitude": "-48.385"
+      "latitude": "-27.60270315080468",
+      "longitude": "-48.53848942534674"
     },
     {
       "nomeFantasia": "VitalFarma",
@@ -151,8 +151,8 @@ export const newPharmacies = [
       "cidade": "Florianopolis",
       "estado": "SC",
       "complemento": "",
-      "latitude": "-27.427",
-      "longitude": "-48.393"
+      "latitude": "-27.588729009957426",
+      "longitude": "-48.55336362623662"
     }
   ];
   
