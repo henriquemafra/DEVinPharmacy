@@ -195,8 +195,8 @@ export default function NewDrugstore() {
 
     return (
         <Box sx={{ p: 2, pl: 0, overflow: 'hidden' , borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}>
-            <Box component="form" validate onSubmit={handleSubmit} ref={formRef} sx={{ overflow: 'hidden' }}>
-            <Box fullWidth sx={{ display: 'flex'}}>
+            <Box component="form" validate="true" onSubmit={handleSubmit} ref={formRef} sx={{ overflow: 'hidden' }}>
+            <Box sx={{ display: 'flex'}}>
             
             <Typography variant='h4'fontWeight="bold"  sx={{ mt: 1 }}>
               Cadastrar
@@ -224,7 +224,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="nomefantasia"
                             label="Nome Fantasia"
                             name="nomefantasia"
@@ -236,7 +236,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="email"
                             label="Email"
                             name="email"
@@ -246,7 +246,7 @@ export default function NewDrugstore() {
                     <Grid item xs={12} sm={3}>
                         <TextField
                             margin="normal"
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="telefone"
                             label="Telefone"
                             value={formatPhoneNumber(endereco.telefone)}
@@ -259,7 +259,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="celular"
                             label="Celular"
                             name="celular"
@@ -272,7 +272,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="razaosocial"
                             label="Razão social"
                             name="razaosocial"
@@ -283,7 +283,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="cnpj"
                             label="CNPJ"
                             name="cnpj"
@@ -314,7 +314,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             error={errorAlert}
                             id="cep"
                             label="CEP"
@@ -332,7 +332,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="logradouro"
                             label="Logradouro/Endereço"
                             name="logradouro"
@@ -346,7 +346,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="numero"
                             label="Número"
                             name="numero"
@@ -357,7 +357,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="bairro"
                             label="Bairro"
                             name="bairro"
@@ -370,7 +370,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="cidade"
                             label="Cidade"
                             name="cidade"
@@ -383,7 +383,7 @@ export default function NewDrugstore() {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="estado"
                             label="Estado"
                             name="estado"
@@ -395,7 +395,7 @@ export default function NewDrugstore() {
                     <Grid item xs={12} sm={6}>
                         <TextField
                             margin="normal"
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="complemento"
                             label="Complemento"
                             name="complemento"
@@ -423,7 +423,7 @@ export default function NewDrugstore() {
                 <Grid item xs={12} sm={6}>
                         <TextField
                             margin="normal"
-                            fullWidth
+                            sx={{width: '100%'}}
                             required
                             id="latitude"
                             label="Latitude"
@@ -439,7 +439,7 @@ export default function NewDrugstore() {
                     <Grid item xs={12} sm={6}>
                         <TextField
                             margin="normal"
-                            fullWidth
+                            sx={{width: '100%'}}
                             required
                             id="longitude"
                             label="Longitude"

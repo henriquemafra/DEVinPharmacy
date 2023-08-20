@@ -55,8 +55,8 @@ const handleTipomedicamentoChange = (event) => {
 
     return (
         <Box sx={{ p: 2, pl: 0,  overflow: 'hidden', borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}> 
-            <Box component="form" Validate onSubmit={handleSubmit} ref={formRef} sx={{  overflow: 'hidden' }}>
-            <Box fullWidth sx={{ display: 'flex'}}>
+            <Box component="form" validate="true" onSubmit={handleSubmit} ref={formRef} sx={{  overflow: 'hidden' }}>
+            <Box sx={{ display: 'flex'}}>
             
             <Typography variant='h4' fontWeight="bold"  sx={{ mt: 1 }}>
               Cadastrar
@@ -88,7 +88,7 @@ const handleTipomedicamentoChange = (event) => {
                             value={tipomedicamentoValue} // Defina o valor selecionado (estado)
                             onChange={handleTipomedicamentoChange} // Função para lidar com a mudança
                             label="Tipo do medicamento"
-                            fullWidth
+                            sx={{width: '100%'}}
                         >
                             <MenuItem value="Medicamento controlado">Medicamento controlado</MenuItem>
                             <MenuItem value="Medicamento não controlado">Medicamento não controlado</MenuItem>
@@ -99,7 +99,7 @@ const handleTipomedicamentoChange = (event) => {
                             
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="nomemedicamento"
                             label="Nome do medicamento"
                             name="nomemedicamento"
@@ -111,7 +111,7 @@ const handleTipomedicamentoChange = (event) => {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="nomelaboratorio"
                             label="Nome do laboratório"
                             name="nomelaboratorio"
@@ -122,7 +122,7 @@ const handleTipomedicamentoChange = (event) => {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="dosagem"
                             label="Dosagem do medicamento"
                             name="dosagem"
@@ -134,7 +134,7 @@ const handleTipomedicamentoChange = (event) => {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             id="precounid"
                             label="Preço unitário do medicamento"
                             name="precounid"
@@ -145,7 +145,7 @@ const handleTipomedicamentoChange = (event) => {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             multiline
                             id="descricaoBreve"
                             label="Breve descrição"
@@ -157,7 +157,7 @@ const handleTipomedicamentoChange = (event) => {
                         <TextField
                             margin="normal"
                             required
-                            fullWidth
+                            sx={{width: '100%'}}
                             multiline
                             id="descricao"
                             label="Descrição do medicamento"
