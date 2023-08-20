@@ -4,8 +4,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Container, Typography, Box, Button} from '@mui/material';
 import { newPharmacies } from '../drugstores/pharmaExamples'
 import DeleteIcon from '@mui/icons-material/Delete';
-import CloseIcon from '@mui/icons-material/Close';
-
 
 export default function Map() {
 
@@ -67,8 +65,8 @@ export default function Map() {
     
   return (
 
-    <Box container sx={{ p: 2, overflow: 'hidden' }}>
-      <Box fullWidth sx={{ display: 'flex' }}>
+    <Box sx={{ p: 2, overflow: 'hidden' }}>
+      <Box sx={{ display: 'flex' }}>
         <Typography variant='h4' fontWeight="bold" sx={{ mt: 1 }}>
           Farmácias
         </Typography>
