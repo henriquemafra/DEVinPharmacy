@@ -70,10 +70,10 @@ export default function Medicaments() {
   );
 
   return (
-    <Box container sx={{ p: 2, overflow: 'hidden' }}>
-      <Grid container sx={{ p: 1, borderBottom: '1px solid rgba(0, 0, 0, 0.12);' }} spacing={2}>
+    <Box sx={{ p: 2, overflow: 'hidden' }}>
+      <Grid container spacing={1} sx={{ p: 1, borderBottom: '1px solid rgba(0, 0, 0, 0.12);' }} >
         <Grid item xs={12} sm={9}>
-          <Box fullWidth sx={{ display: 'flex', mb: -1.1 }}>
+          <Box sx={{ display: 'flex', mb: -1.1 }}>
 
             <Typography variant='h4' fontWeight="bold"  sx={{ my: 1 }} >
               Medicamentos <br />
@@ -155,8 +155,7 @@ export default function Medicaments() {
               <Button size='small' onClick={handleCloseModal}><CloseIcon /></Button>
             </Grid>
             <Grid sx={{ p: 4, display: 'flex', [theme.breakpoints.down('sm')]: { p: 1, } }} container>
-              <Grid container xs={12} sm={12} >
-
+              <Grid >
                 <Grid item xs={12} sm={6} sx={{ mt:2, mb:1 }}>
                   <Box sx={{ display: 'flex' }}>
                     <Typography variant="h5" fontWeight="bold" component="div">
@@ -182,7 +181,7 @@ export default function Medicaments() {
                     alt="remedio"
                   />
                 </Grid>
-              </Grid>
+              
 
               <Grid item xs={12} sm={12}>
                 <Typography variant="body2" component="div" sx={{ textAlign: 'justify' }} color="text.primary">
@@ -192,7 +191,7 @@ export default function Medicaments() {
                 </Typography>
               </Grid>
             </Grid>
-
+            </Grid>
           </Paper>
         </Box>
       </Modal>
