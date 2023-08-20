@@ -2,11 +2,12 @@ import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { CssBaseline, Drawer as MuiDrawer, Box, AppBar as MuiAppBar, Toolbar, List, Typography, ListItemButton, Divider, IconButton, Badge, Container, Paper } from '@mui/material';
 import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon, Notifications as NotificationsIcon } from '@mui/icons-material';
-import { mainListItems, secondaryListItems, terciaryListItems } from './listItems';
+import { mainListItems, secondaryListItems} from './listItems';
 import { Routes, Route } from 'react-router-dom';
 import NewDrugstore from '../drugstores';
 import NewMedicament from '../new-medicament';
 import Map from '../map';
+import Help from '../help';
 import Medicaments from '../listMedicaments';
 
 // Largura da Gaveta
@@ -142,14 +143,6 @@ export default function Dashboard() {
                     {mainListItems} {/* Chama a lista de opções principais do menu. */}
                     <Divider sx={{ my: 1 }} />
                     {secondaryListItems} {/* Chama a lista secundária de opções do menu. */}
-                    <Divider sx={{
-                        mt: 34, [theme.breakpoints.up('sm')]: {
-                            mt: 33,
-                        },
-                    }} />
-                    <Box sx={{mt: 1}}>
-                    {terciaryListItems}
-                    </Box>
                 </List>
             </Drawer>
             <Box
@@ -173,6 +166,7 @@ export default function Dashboard() {
                         <Route path="/newmedicament" element={<NewMedicament />} />
                         <Route path="/map" element={<Map />} />
                         <Route path="/medicaments" element={<Medicaments />} />
+                        <Route path="/help" element={<Help/>} />
                     </Routes>
                 </Container>
             </Box>

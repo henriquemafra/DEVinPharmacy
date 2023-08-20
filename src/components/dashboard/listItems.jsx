@@ -54,19 +54,12 @@ export const secondaryListItems = (
       </ListItemIcon>
       <ListItemText primary="Notificações" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/dashboard/help">
       <ListItemIcon>
         <HelpCenterIcon />
       </ListItemIcon>
       <ListItemText primary="Ajuda" />
     </ListItemButton>
-  </React.Fragment>
-
- 
-);
-
-export const terciaryListItems = (
-  <React.Fragment>
     <ListItemButton>
       <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
         <ListItemIcon>
@@ -77,4 +70,5 @@ export const terciaryListItems = (
     </ListItemButton>
   </React.Fragment>
 
+ 
 );
