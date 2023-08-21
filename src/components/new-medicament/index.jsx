@@ -62,7 +62,7 @@ const handleTipomedicamentoChange = (event) => {
               Cadastrar
             </Typography>
           </Box>
-          <Typography variant='p' color='text.secondary' >Adicionar novo produto ao catálogo.</Typography>
+          <Typography variant='p' color='text.secondary' >Cadastro de novo produto.</Typography>
                 <Box sx={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.12)'   }}>
                     <Typography variant='h6' fontWeight="bold" sx={{ mt: 1 }} >
                         Informações
@@ -75,7 +75,7 @@ const handleTipomedicamentoChange = (event) => {
                                 pt: 1,
                                 px: 5,
                                 pb: 3,
-                                mt: 1
+                                mt: 3
                             }}
                         >
                 <Grid container spacing={2}>

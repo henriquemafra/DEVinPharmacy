@@ -98,8 +98,8 @@ export default function Medicaments() {
       <Grid container sx={{ p: 1 }} spacing={1}>
         {filteredMedicamentos.map((medicamento, index) => (
           <Grid sx={{
-            height: 'contain', transition: 'transform 0.3s ease',
-            transform: 'scale(0.9)',
+            height: 'contain', transition: 'transform 0.6s ease',
+            transform: 'scale(0.98)',
             '&:hover': {
               transform: 'scale(1)',
             },

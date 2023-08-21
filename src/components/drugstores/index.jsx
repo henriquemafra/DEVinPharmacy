@@ -202,7 +202,7 @@ export default function NewDrugstore() {
               Cadastrar
             </Typography>
           </Box>
-          <Typography variant='p' component="div" color='text.secondary' >Cadastro de nova farmácia</Typography>
+          <Typography variant='p' component="div" color='text.secondary' >Cadastro de nova farmácia.</Typography>
                 <Box sx={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.12);'  }}>
                     <Typography variant='h6' fontWeight="bold" sx={{ mt: 2 , mb: -0.5}} >
                         Identificação
@@ -215,7 +215,7 @@ export default function NewDrugstore() {
                                 pt: 1,
                                 px: 5,
                                 pb: 3,
-                                mt: 1
+                                mt: 3
                             }}
                         >
                 <Grid container spacing={2}>
@@ -410,7 +410,7 @@ export default function NewDrugstore() {
                     </Typography>
                 </Box>
                 <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Antes de finalizar o cadastro, confira se a coordenadas estão corretas. 
-                Caso não saiba como realizar o teste <a style={{textDecoration: 'none', color: '#04005D'}} target='_newBlank' href="https://google.com">clique aqui</a>.</Typography>
+                Caso não saiba como realizar o teste <a style={{textDecoration: 'none', color: '#04005D'}} target="_blank" href="https://support.google.com/maps/answer/18539?hl=pt-PT&co=GENIE.Platform%3DAndroid#:~:text=Ver%20as%20coordenadas%20de%20um%20lugar%201%20No,Na%20caixa%20de%20pesquisa%2C%20voc%C3%AA%20ver%C3%A1%20as%20coordenadas.">clique aqui</a>.</Typography>
                 <Paper
                             sx={{
                                 pt: 1,
