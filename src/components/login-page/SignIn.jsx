@@ -9,6 +9,7 @@ import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
+import logo from '../../assets/img/logo.png'
 
 // Passando toggleComponent como prop para fazer a alteração entre signup e signin
 export default function SignIn({toggleComponent}) {
@@ -72,7 +73,7 @@ export default function SignIn({toggleComponent}) {
             <img
                 style={{ marginBottom: '10px' }}
                 alt="Logo"
-                src="src\assets\img\logo.png"
+                src={logo}
                 width="300"
                 height="70"
             />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, useMediaQuery, Link } from '@mui/material';
+import LogoSMW from '../../assets/img/logoSMW.png'
 
 export default function Help() {
   // Definindo se a tela é mobile
@@ -11,7 +12,7 @@ export default function Help() {
       <img
                         style={{}}
                         alt="Logo"
-                        src="\src\assets\img\logoSMW.png"
+                        src={LogoSMW}
                         width="50"
                         height="50"
                     /><Typography variant="h4" fontWeight="bold" sx={{ ml: 1, mt: 1 }}>

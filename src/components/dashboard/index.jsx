@@ -11,6 +11,8 @@ import Help from '../help';
 import Medicaments from '../listMedicaments';
 import NotificationMenu from '../notificationMenu';
 import NotFoundPage from '../404'
+import logoSM from '../../assets/img/logoSM.png'
+import logo from '../../assets/img/logo.png'
 
 
 
@@ -98,7 +100,7 @@ export default function Dashboard() {
                     <img
                         style={{}}
                         alt="Logo"
-                        src="\src\assets\img\logoSM.png"
+                        src={logoSM}
                         width="50"
                         height="50"
                     />
@@ -133,7 +135,7 @@ export default function Dashboard() {
                     <img
                         style={{ padding: '5px' }}
                         alt="Logo"
-                        src="\src\assets\img\logo.png"
+                        src={logo}
                         width="180"
                         height="45"
                     />

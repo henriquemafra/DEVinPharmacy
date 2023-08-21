@@ -5,6 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { medicamentosExemplos } from './medicaments';
 import { useTheme } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
+import Remedio from '../../assets/img/remedio.png'
 
 export default function Medicaments() {
 
@@ -155,7 +156,7 @@ export default function Medicaments() {
               <Button size='small' onClick={handleCloseModal}><CloseIcon /></Button>
             </Grid>
             <Grid sx={{ p: 4, display: 'flex', [theme.breakpoints.down('sm')]: { p: 1, } }} container>
-              <Grid >
+              <Grid container sx={{ width: '400px', [theme.breakpoints.down('sm')]: {width: '300px'} }}>
                 <Grid item xs={12} sm={6} sx={{ mt:2, mb:1 }}>
                   <Box sx={{ display: 'flex' }}>
                     <Typography variant="h5" fontWeight="bold" component="div">
@@ -169,22 +170,25 @@ export default function Medicaments() {
                   <Typography variant='p' component="div" sx={{ fontSize: 12 }} color="text.secondary" gutterBottom>
                     Laboratório: {selectedMedicamento && selectedMedicamento.laboratorio} | {selectedMedicamento && selectedMedicamento.tipo}
                   </Typography>
-                  <Typography variant="h5" fontWeight="bold" color="text.primary">
+                 
+                </Grid>
+                <Grid item xs={12} sm={6} sx={{ mt:4, mb:1, textAlign: 'center', [theme.breakpoints.down('sm')]: {textAlign: 'left', mt:1}}}>
+                <Typography variant="h5" fontWeight="bold" color="text.primary">
                     {selectedMedicamento && selectedMedicamento.precounid}
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Grid item xs={12} sm={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   <CardMedia
                     sx={{ width: '150px', height: '150px', textAlign: 'center' }}
                     component="img"
-                    image="/src/assets/img/remedio.png"
+                    image={Remedio}
                     alt="remedio"
                   />
                 </Grid>
               
 
               <Grid item xs={12} sm={12}>
-                <Typography variant="body2" component="div" sx={{ textAlign: 'justify' }} color="text.primary">
+                <Typography variant="body2" component="div" sx={{ textAlign: 'justify', width: '400px', mt: 2, [theme.breakpoints.down('sm')]: {width: '300px'} }} color="text.primary">
                   <Typography variant="p" sx={{ fontWeight: 'bold' }} color="text.primary">
                     Descrição:
                   </Typography> <br /> {selectedMedicamento && selectedMedicamento.descricao}
