@@ -19,7 +19,7 @@ export default function NotificationMenu() {
   return (
     <Box>
       <IconButton color="inherit" onClick={handleClick}>
-        <Badge badgeContent={1} color="error">
+        <Badge badgeContent={4} color="error">
           <NotificationsIcon />
         </Badge>
       </IconButton>
