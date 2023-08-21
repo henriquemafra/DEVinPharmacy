@@ -1,4 +1,5 @@
-import './importLeafletCss'
+import 'leaflet/dist/leaflet.css';
+import markerIconPng from 'leaflet/dist/images/marker-icon.png'
 import { useState, useEffect, React } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Container, Typography, Box, Button} from '@mui/material';
@@ -79,6 +80,7 @@ export default function Map() {
         />
        {data.map((farmacia, index) => (
   <Marker
+    icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}
     key={index}
     position={[parseFloat(farmacia.latitude), parseFloat(farmacia.longitude)]}
   >
