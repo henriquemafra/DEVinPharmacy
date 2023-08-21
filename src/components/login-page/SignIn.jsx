@@ -11,8 +11,7 @@ import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import logo from '../../assets/img/logo.png'
 
-// Passando toggleComponent como prop para fazer a alteração entre signup e signin
-export default function SignIn({toggleComponent}) {
+export default function SignIn({}) {
 
     const [formData, setFormData] = useState({
         email: '',
@@ -32,32 +31,35 @@ export default function SignIn({toggleComponent}) {
             [name]: value,
         }));
     };
-
-    // Realizar a validação dos campos do formulário e definir a ação a ser tomada após o envio.
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-        //Expressão regular para definir o padrão de email
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!formData.email.match(emailPattern)) {
-            setErrorAlert(true);
-            setTimeout(() => {
-                setErrorAlert(false);
-            }, 10000); // Utiliza função setTimeout para ocultar o alerta após 10 segundos
-        } else if (
-            formData.password.length < 8 || // Verifica se a senha tem pelo menos 8 caracteres
-            !/(?=.*[a-zA-Z])/.test(formData.password) || // Verifica se a senha contém pelo menos uma letra
-            !/(?=.*\d)/.test(formData.password) // Verifica se a senha contém pelo menos um número
-        ) {
-            setErrorAlertPassword(true);
-            setTimeout(() => {
-                setErrorAlertPassword(false);
-            }, 10000); // Utiliza função setTimeout para ocultar o alerta após 10 segundos
+      
+        // Obtem os dados armazenados no localStorage
+        const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+      
+        // Verifica se há um usuário com o email inserido
+        const user = storedUsers.find(user => user.email === formData.email);
+      
+        if (!user) {
+          // Usuário não encontrado, exiba um alerta de erro
+          setErrorAlert(true);
+          setTimeout(() => {
+            setErrorAlert(false);
+          }, 10000);
+        } else if (user.password !== formData.password) {
+          // Senha incorreta, exibe um alerta de erro
+          setErrorAlertPassword(true);
+          setTimeout(() => {
+            setErrorAlertPassword(false);
+          }, 10000);
         } else {
-            // Redirecionar para a página de Mapa
-            window.location.href = '/dashboard'; // Lembrar de inserir o endereço da página mapa
+          // Login bem-sucedido, redireciona para a página de destino
+          window.location.href = '/dashboard';
         }
-    };
+      };
+      
+    
     return (
         <Box
             sx={{
@@ -80,7 +82,7 @@ export default function SignIn({toggleComponent}) {
             <Typography sx={{ textAlign: "center" }} component="p">
                 Insira seus dados de acesso
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1}}>
+            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                 <TextField
                     error={errorAlert}
                     margin="normal"
@@ -118,10 +120,10 @@ export default function SignIn({toggleComponent}) {
                     Entrar
                 </Button>
                 {errorAlert && (
-                    <Alert variant="outlined" severity="error">Informe um email válido por favor.</Alert>
+                    <Alert variant="outlined" severity="error">Não encontramos uma conta com este email.</Alert>
                 )}
                 {errorAlertPassword && (
-                    <Alert variant="outlined" severity="error" sx={{ mt:1}}>Informe uma senha válida com no mínimo 8 caracteres incluindo letras e números.</Alert>
+                    <Alert variant="outlined" severity="error" sx={{ mt: 1 }}>Senha incorreta. Sua senha deve ter no mínimo 8 caracteres, incluindo letras e números.</Alert>
                 )}
 
                 <Grid container>
