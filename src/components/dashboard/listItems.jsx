@@ -48,12 +48,6 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       Mais opções
     </ListSubheader>
-    <ListItemButton>
-      <ListItemIcon>
-        <NotificationsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Notificações" />
-    </ListItemButton>
     <ListItemButton component={Link} to="/dashboard/help">
       <ListItemIcon>
         <HelpCenterIcon />
