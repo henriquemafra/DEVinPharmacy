@@ -1,4 +1,4 @@
-import 'leaflet/dist/leaflet.css';
+import './importLeafletCss'
 import { useState, useEffect, React } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Container, Typography, Box, Button} from '@mui/material';
