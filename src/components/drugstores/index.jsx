@@ -337,7 +337,6 @@ export default function NewDrugstore() {
                                 autoComplete="logradouro"
                                 value={endereco.logradouro ?? ''}
                                 onChange={(e) => setEndereco({ ...endereco, logradouro: e.target.value })}
-
                             />
                         </Grid>
                         <Grid item xs={12} sm={3}>
@@ -348,6 +347,9 @@ export default function NewDrugstore() {
                                 id="numero"
                                 label="Número"
                                 name="numero"
+                                InputLabelProps={{
+                                    shrink: true,
+                                  }}
                                 autoComplete="numero"
                             />
                         </Grid>

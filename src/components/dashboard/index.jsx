@@ -171,7 +171,7 @@ export default function Dashboard() {
                 }}
             >
                 <Toolbar />
-                <Container maxWidth="lg" sx={{ my: 3 }}>
+                <Container maxWidth="xl">
                     {/* Rotas internas para as opções do menu */}
                     <Routes>
                         <Route path="/" element={<Medicaments />} />
