@@ -179,6 +179,7 @@ const handleSubmit = (event) => {
             </Grid>
           </Grid>
           <Button
+            type='submit'
             onClick={handleSubmit}
             fullWidth
             variant="contained"
