@@ -1,0 +1,12 @@
+{
+    "routes": [
+      { "src": "/", "dest": "/" },
+      { "src": "/newpharmacy", "dest": "/" },
+      { "src": "/newmedicament", "dest": "/" },
+      { "src": "/map", "dest": "/" },
+      { "src": "/medicaments", "dest": "/" },
+      { "src": "/help", "dest": "/" },
+      { "src": "/(.*)", "dest": "/404" }
+    ]
+  }
+  
