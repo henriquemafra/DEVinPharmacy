@@ -74,7 +74,7 @@ export default function Map() {
         </Typography>
       </Box>
       <Typography variant='p' component="div" sx={{mb: 1, borderBottom: '1px solid rgba(0, 0, 0, 0.12);' }} color='text.secondary'>Total de {data.length} farmácias cadastradas até o momento.</Typography>
-      <MapContainer style={{ width: '100%', height: '600px' }} center={position} zoom={13} scrollWheelZoom={false}>
+      <MapContainer style={{ width: '100%', height: '65vh' }} center={position} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
