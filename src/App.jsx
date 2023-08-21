@@ -3,6 +3,7 @@ import LoginPage from './components/login-page';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '@fontsource/roboto/300.css';
+import NotFoundPage from './components/404';
 
 function App() {
 
@@ -33,7 +34,8 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage />} />
-          <Route path='/dashboard/*' element={<Dashboard />} />        
+          <Route path='/dashboard/*' element={<Dashboard />} />  
+          <Route path='*' element={<NotFoundPage/>} />    
         </Routes>
       </Router>
     </ThemeProvider>

@@ -10,6 +10,7 @@ import Map from '../map';
 import Help from '../help';
 import Medicaments from '../listMedicaments';
 import NotificationMenu from '../notificationMenu';
+import NotFoundPage from '../404'
 
 
 
@@ -166,6 +167,7 @@ export default function Dashboard() {
                         <Route path="/map" element={<Map />} />
                         <Route path="/medicaments" element={<Medicaments />} />
                         <Route path="/help" element={<Help/>} />
+                        <Route path='/*' element={<NotFoundPage/>} />
                     </Routes>
                 </Container>
             </Box>
