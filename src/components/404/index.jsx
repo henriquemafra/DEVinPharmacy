@@ -1,25 +1,35 @@
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Grid, Button, Typography } from '@mui/material';
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
+  const handleGoBack = () => {
+    window.history.back(); // Volta para a página anterior
+  };
+
   return (
-    <Box
+    <Grid
+      container
       sx={{
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        justifyContent: 'center',
+        minHeight: '85vh',
       }}
     >
-      <Typography variant="h1" align="center" color="error">
-        404
-      </Typography>
-      <Typography variant='h3' align='center'>
-      A página que você procura não foi encontrada.
-      </Typography>
-      <Button text='Voltar'/>
-    </Box>
+      <Grid item xs={12} sm={12} textAlign="center">
+        <Typography variant='h1'>
+          <b>404</b>
+        </Typography>
+        <Typography variant='p' color='text.secondary'>
+          Isso é um erro.
+        </Typography>
+        <Typography variant='p' component='div'>
+          A URL requisitada não foi encontrada em nossos servidores.
+        </Typography>
+        <Button variant="contained" color="primary" sx={{mt:5}} onClick={handleGoBack}>
+          Voltar
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
-
-export default NotFoundPage;
