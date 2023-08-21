@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import { CssBaseline, Drawer as MuiDrawer, Box, AppBar as MuiAppBar, Toolbar, List, Typography, ListItemButton, Divider, IconButton, Badge, Container, Paper } from '@mui/material';
-import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon, Notifications as NotificationsIcon } from '@mui/icons-material';
+import { CssBaseline, Drawer as MuiDrawer, Box, AppBar as MuiAppBar, Toolbar, List, Typography, IconButton, Divider, Container } from '@mui/material';
+import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon } from '@mui/icons-material';
 import { mainListItems, secondaryListItems} from './listItems';
 import { Routes, Route } from 'react-router-dom';
 import NewDrugstore from '../drugstores';
@@ -9,6 +9,9 @@ import NewMedicament from '../new-medicament';
 import Map from '../map';
 import Help from '../help';
 import Medicaments from '../listMedicaments';
+import NotificationMenu from '../notificationMenu';
+
+
 
 // Largura da Gaveta
 const drawerWidth = 240;
@@ -68,7 +71,7 @@ export default function Dashboard() {
     const toggleDrawer = () => {
         setOpen(!open);
     };
-
+   
     return (
 
         <Box sx={{ display: 'flex' }}>
@@ -111,11 +114,7 @@ export default function Dashboard() {
                     >
                         Medicament Management
                     </Typography>
-                    <IconButton color="inherit">
-                        <Badge badgeContent={1} color="error">
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
+                    <NotificationMenu/>
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open}>
