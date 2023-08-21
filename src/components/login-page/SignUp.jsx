@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
-export default function SignUp({toggleComponent}) {
+export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -41,7 +41,7 @@ export default function SignUp({toggleComponent}) {
           <Typography component="h1" variant="h5">
            Cadastro
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3}}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -114,7 +114,7 @@ export default function SignUp({toggleComponent}) {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" onClick={toggleComponent} variant="body2">
+                <Link href="/" variant="body2">
                   Já possuí uma conta? Entre.
                 </Link>
               </Grid>

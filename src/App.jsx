@@ -35,6 +35,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/dashboard/*' element={<Dashboard />} />  
+          <Route path='/loginpage/*' element={<LoginPage />} /> 
           <Route path='*' element={<NotFoundPage/>} />    
         </Routes>
       </Router>

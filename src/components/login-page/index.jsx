@@ -1,20 +1,16 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import { Routes, Route } from 'react-router-dom';
+import { CssBaseline, Grid, Paper }from '@mui/material';
 import Copyright from '../copyright';
 import backgroundImg from '../../assets/img/LoginPageBg.png';
-import SignUp from './SignUp';
-import SignIn from './SignIn';
-import { useState } from 'react';
+import ForgotPass from '../forgotPass';
+import SignUp from '../login-page/SignUp'
+import SignIn from '../login-page/SignIn'
+import NotFoundPage from '../404';
+
 
 export default function LoginPage() {
-    // Usando UseState para fazer a troca do componente no elemento entre cadastro e login.
-    const [isSignUp, setIsSignUp] = useState(false);
-
-    const toggleComponent = () => {
-        setIsSignUp(!isSignUp);
-    };
+   
     return (
             <Grid container component="main" sx={{ height: '100vh' }}>
                 <CssBaseline />
@@ -22,7 +18,7 @@ export default function LoginPage() {
                 <Grid
                     item
                     xs={false}
-                    sm={4}
+                    sm={8}
                     md={7}
                     sx={{
                         backgroundImage: `url(${backgroundImg})`,
@@ -31,13 +27,30 @@ export default function LoginPage() {
                         backgroundPosition: 'center',
                     }}
                 />
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={24} square>
-                    {/* Mudar entre Signup e SignIn*/}
-                {isSignUp ? <SignUp toggleComponent={toggleComponent} /> : <SignIn toggleComponent={toggleComponent} />}
+                <Grid item xs={12} sm={4} md={4} component={Paper} elevation={24} square>
+                <Routes>
+                        {/* Rotas internas para as opções do menu*/}
+                        <Route path="/" element={<SignIn/>} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/forgotpass" element={<ForgotPass />} />
+                        <Route path='/*' element={<NotFoundPage/>} />
+                    </Routes>
                     <Grid item >
                     <Copyright />
                     </Grid>
                 </Grid>
+                <Grid
+                    item
+                    xs={false}
+                    sm={6}
+                    md={1}
+                    sx={{
+                        backgroundColor: '#04005D',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '100% 100%',
+                        backgroundPosition: 'center',
+                    }}
+                />
             </Grid>
     );
 }

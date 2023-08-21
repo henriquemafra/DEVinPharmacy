@@ -62,7 +62,7 @@ export default function SignIn({toggleComponent}) {
         <Box
             sx={{
                 mt: -3,
-                mx: 4,
+                mx: 6,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -74,13 +74,13 @@ export default function SignIn({toggleComponent}) {
                 style={{ marginBottom: '10px' }}
                 alt="Logo"
                 src={logo}
-                width="300"
-                height="70"
+                width="200"
+                height="50"
             />
             <Typography sx={{ textAlign: "center" }} component="p">
                 Insira seus dados de acesso
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1}}>
                 <TextField
                     error={errorAlert}
                     margin="normal"
@@ -118,20 +118,20 @@ export default function SignIn({toggleComponent}) {
                     Entrar
                 </Button>
                 {errorAlert && (
-                    <Alert variant="outlined" severity="error">Ops! Informe um email válido por favor.</Alert>
+                    <Alert variant="outlined" severity="error">Informe um email válido por favor.</Alert>
                 )}
                 {errorAlertPassword && (
-                    <Alert variant="outlined" severity="error">Ops! Informe uma senha válida com no mínimo 8 caracteres incluindo letras e números.</Alert>
+                    <Alert variant="outlined" severity="error" sx={{ mt:1}}>Informe uma senha válida com no mínimo 8 caracteres incluindo letras e números.</Alert>
                 )}
 
                 <Grid container>
                     <Grid item xs>
-                        <Link href="#" variant="body2">
+                        <Link href="/loginpage/forgotpass" variant="body2">
                             Esqueceu sua senha?
                         </Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#" onClick={toggleComponent} variant="body2">
+                        <Link href="/loginpage/signup" variant="body2">
                             {"É novo por aqui? Cadastre-se!"}
                         </Link>
                     </Grid>

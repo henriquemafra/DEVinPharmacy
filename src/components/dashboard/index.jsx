@@ -163,7 +163,7 @@ export default function Dashboard() {
                 <Container maxWidth="lg" sx={{ my: 3 }}>
                     <Routes>
                         {/* Rotas internas para as opções do menu*/}
-                        <Route path="/" element={<NewDrugstore />} />
+                        <Route path="/" element={<Medicaments />} />
                         <Route path="/newpharmacy" element={<NewDrugstore />} />
                         <Route path="/newmedicament" element={<NewMedicament />} />
                         <Route path="/map" element={<Map />} />
