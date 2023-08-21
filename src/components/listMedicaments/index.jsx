@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Grid, Typography, Card, CardActionArea, CardMedia, Box, Paper, CardContent, CardActions, Button, Modal } from '@mui/material';
+import { TextField, Grid, Typography, Card, CardMedia, Box, Paper, CardContent, CardActions, Button, Modal } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { medicamentosExemplos } from './medicaments';
@@ -11,27 +11,29 @@ export default function Medicaments() {
 
   const theme = useTheme();
 
+  // Estado para armazenar o medicamento selecionado
   const [selectedMedicamento, setSelectedMedicamento] = useState(null);
   const [openModal, setOpenModal] = useState(false);
 
+  // Função para abrir o modal com os detalhes do medicamento
   const handleOpenModal = (medicamento) => {
     setSelectedMedicamento(medicamento);
     setOpenModal(true);
   };
 
+  // Função para fechar o modal
   const handleCloseModal = () => {
     setSelectedMedicamento(null);
     setOpenModal(false);
   };
-
-
 
   // Estado para armazenar os dados dos medicamentos
   const [medicamentos, setMedicamentos] = useState([]);
   // Estado para armazenar o termo de pesquisa
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Injeta os dados do objeto medicamentosExemplos no localStorage
+  // Consulta o armazenamento local para obter os dados de medicamentos e, se não houver nenhum dado armazenado,
+  // insere alguns exemplos para que o aplicativo tenha informações iniciais para exibir.
   useEffect(() => {
     getMedicamentosData();
 
@@ -63,7 +65,6 @@ export default function Medicaments() {
 
   // Função para filtrar os medicamentos com base no termo de pesquisa
   const allMedicamentos = [...medicamentos];
-
   const filteredMedicamentos = allMedicamentos.filter(medicamento =>
     Object.values(medicamento).some(value =>
       value && value.toString().toLowerCase().includes(searchTerm.toLowerCase())

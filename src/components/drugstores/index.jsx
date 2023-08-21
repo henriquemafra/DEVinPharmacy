@@ -172,7 +172,6 @@ export default function NewDrugstore() {
         }
     };
 
-
     // UseEffect para atualizar a geolocalização quando o CEP mudar
     useEffect(() => {
         if (endereco.cep) {
@@ -192,267 +191,266 @@ export default function NewDrugstore() {
         }
     }, [endereco.cep]);
 
-
     return (
-        <Box sx={{ p: 2, pl: 0, overflow: 'hidden' , borderBottom: '1px solid rgba(0, 0, 0, 0.12);'}}>
+        <Box sx={{ p: 2, pl: 0, overflow: 'hidden', borderBottom: '1px solid rgba(0, 0, 0, 0.12);' }}>
             <Box component="form" validate="true" onSubmit={handleSubmit} ref={formRef} sx={{ overflow: 'hidden' }}>
-            <Box sx={{ display: 'flex'}}>
-            
-            <Typography variant='h4'fontWeight="bold"  sx={{ mt: 1 }}>
-              Cadastrar
-            </Typography>
-          </Box>
-          <Typography variant='p' component="div" color='text.secondary' >Cadastro de nova farmácia.</Typography>
-                <Box sx={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.12);'  }}>
-                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2 , mb: -0.5}} >
+                <Box sx={{ display: 'flex' }}>
+
+                    <Typography variant='h4' fontWeight="bold" sx={{ mt: 1 }}>
+                        Cadastrar
+                    </Typography>
+                </Box>
+                <Typography variant='p' component="div" color='text.secondary' >Cadastro de nova farmácia.</Typography>
+                <Box sx={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.12);' }}>
+                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2, mb: -0.5 }} >
                         Identificação
                     </Typography>
                 </Box>
-                <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Preencha adequadamente todos os campos, 
-                caso necessário consulte o manual de ajuda.</Typography>
+                <Typography variant='p' sx={{ mb: 3 }} color='text.secondary'>Preencha adequadamente todos os campos,
+                    caso necessário consulte o manual de ajuda.</Typography>
                 <Paper
-                            sx={{
-                                pt: 1,
-                                px: 5,
-                                pb: 3,
-                                mt: 3
-                            }}
-                        >
-                <Grid container spacing={2}>
+                    sx={{
+                        pt: 1,
+                        px: 5,
+                        pb: 3,
+                        mt: 3
+                    }}
+                >
+                    <Grid container spacing={2}>
 
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="nomefantasia"
-                            label="Nome Fantasia"
-                            name="nomefantasia"
-                            autoComplete="nomefantasia"
-                            autoFocus
-                        />
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="nomefantasia"
+                                label="Nome Fantasia"
+                                name="nomefantasia"
+                                autoComplete="nomefantasia"
+                                autoFocus
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="email"
+                                label="Email"
+                                name="email"
+                                autoComplete="email"
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                sx={{ width: '100%' }}
+                                id="telefone"
+                                label="Telefone"
+                                value={formatPhoneNumber(endereco.telefone)}
+                                onChange={(e) => setEndereco({ ...endereco, telefone: e.target.value })}
+                                name="telefone"
+                                autoComplete="telefone"
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="celular"
+                                label="Celular"
+                                name="celular"
+                                autoComplete="celular"
+                                value={formatPhoneNumber(endereco.celular)}
+                                onChange={(e) => setEndereco({ ...endereco, celular: e.target.value })}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="razaosocial"
+                                label="Razão social"
+                                name="razaosocial"
+                                autoComplete="razão social"
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="cnpj"
+                                label="CNPJ"
+                                name="cnpj"
+                                autoComplete="CNPJ"
+                                value={formatCnpj(endereco.cnpj)} // Aplicando a formatação
+                                onChange={(e) => setEndereco({ ...endereco, cnpj: e.target.value })}
+                            />
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="email"
-                            label="Email"
-                            name="email"
-                            autoComplete="email"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            sx={{width: '100%'}}
-                            id="telefone"
-                            label="Telefone"
-                            value={formatPhoneNumber(endereco.telefone)}
-                            onChange={(e) => setEndereco({ ...endereco, telefone: e.target.value })}
-                            name="telefone"
-                            autoComplete="telefone"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="celular"
-                            label="Celular"
-                            name="celular"
-                            autoComplete="celular"
-                            value={formatPhoneNumber(endereco.celular)}
-                            onChange={(e) => setEndereco({ ...endereco, celular: e.target.value })}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="razaosocial"
-                            label="Razão social"
-                            name="razaosocial"
-                            autoComplete="razão social"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="cnpj"
-                            label="CNPJ"
-                            name="cnpj"
-                            autoComplete="CNPJ"
-                            value={formatCnpj(endereco.cnpj)} // Aplicando a formatação
-                            onChange={(e) => setEndereco({ ...endereco, cnpj: e.target.value })}
-                        />
-                    </Grid>
-                </Grid>
                 </Paper>
-                <Box sx={{ display: 'flex',  }}>
-                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2 , mb: -0.5}} >
+                <Box sx={{ display: 'flex', }}>
+                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2, mb: -0.5 }} >
                         Endereço
                     </Typography>
                 </Box>
-                <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Preencha adequadamente todos os campos, 
-                caso necessário consulte o manual de ajuda.</Typography>
+                <Typography variant='p' sx={{ mb: 3 }} color='text.secondary'>Preencha adequadamente todos os campos,
+                    caso necessário consulte o manual de ajuda.</Typography>
                 <Paper
-                            sx={{
-                                pt: 1,
-                                px: 5,
-                                pb: 3,
-                                mt: 3
-                            }}
-                        >
-                <Grid container spacing={2}>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            error={errorAlert}
-                            id="cep"
-                            label="CEP"
-                            name="cep"
-                            autoComplete="cep"
-                            onBlur={(e) => pesquisaCep(e.target.value)}
-                            value={formatCep(endereco.cep)} // Formata o CEP antes de exibir
-                            onChange={(e) => setEndereco({ ...endereco, cep: e.target.value })}
-                        />
-                        {errorAlert && (
-                            <Typography component="p" color="error" sx={{ fontSize: '12px' }}>Informe um CEP válido por favor.</Typography>
-                        )}
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="logradouro"
-                            label="Logradouro/Endereço"
-                            name="logradouro"
-                            autoComplete="logradouro"
-                            value={endereco.logradouro ?? ''}
-                            onChange={(e) => setEndereco({ ...endereco, logradouro: e.target.value })}
+                    sx={{
+                        pt: 1,
+                        px: 5,
+                        pb: 3,
+                        mt: 3
+                    }}
+                >
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                error={errorAlert}
+                                id="cep"
+                                label="CEP"
+                                name="cep"
+                                autoComplete="cep"
+                                onBlur={(e) => pesquisaCep(e.target.value)}
+                                value={formatCep(endereco.cep)} // Formata o CEP antes de exibir
+                                onChange={(e) => setEndereco({ ...endereco, cep: e.target.value })}
+                            />
+                            {errorAlert && (
+                                <Typography component="p" color="error" sx={{ fontSize: '12px' }}>Informe um CEP válido por favor.</Typography>
+                            )}
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="logradouro"
+                                label="Logradouro/Endereço"
+                                name="logradouro"
+                                autoComplete="logradouro"
+                                value={endereco.logradouro ?? ''}
+                                onChange={(e) => setEndereco({ ...endereco, logradouro: e.target.value })}
 
-                        />
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="numero"
+                                label="Número"
+                                name="numero"
+                                autoComplete="numero"
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="bairro"
+                                label="Bairro"
+                                name="bairro"
+                                autoComplete="bairro"
+                                value={endereco.bairro}
+                                onChange={(e) => setEndereco({ ...endereco, bairro: e.target.value })}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="cidade"
+                                label="Cidade"
+                                name="cidade"
+                                autoComplete="cidade"
+                                value={endereco.cidade}
+                                onChange={(e) => setEndereco({ ...endereco, cidade: e.target.value })}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                            <TextField
+                                margin="normal"
+                                required
+                                sx={{ width: '100%' }}
+                                id="estado"
+                                label="Estado"
+                                name="estado"
+                                autoComplete="estado"
+                                value={endereco.estado}
+                                onChange={(e) => setEndereco({ ...endereco, estado: e.target.value })}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                margin="normal"
+                                sx={{ width: '100%' }}
+                                id="complemento"
+                                label="Complemento"
+                                name="complemento"
+                                autoComplete="complemento"
+                            />
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="numero"
-                            label="Número"
-                            name="numero"
-                            autoComplete="numero"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="bairro"
-                            label="Bairro"
-                            name="bairro"
-                            autoComplete="bairro"
-                            value={endereco.bairro}
-                            onChange={(e) => setEndereco({ ...endereco, bairro: e.target.value })}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="cidade"
-                            label="Cidade"
-                            name="cidade"
-                            autoComplete="cidade"
-                            value={endereco.cidade}
-                            onChange={(e) => setEndereco({ ...endereco, cidade: e.target.value })}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <TextField
-                            margin="normal"
-                            required
-                            sx={{width: '100%'}}
-                            id="estado"
-                            label="Estado"
-                            name="estado"
-                            autoComplete="estado"
-                            value={endereco.estado}
-                            onChange={(e) => setEndereco({ ...endereco, estado: e.target.value })}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            margin="normal"
-                            sx={{width: '100%'}}
-                            id="complemento"
-                            label="Complemento"
-                            name="complemento"
-                            autoComplete="complemento"
-                        />
-                    </Grid>
-                </Grid> 
                 </Paper>
-                <Box sx={{ display: 'flex',  }}>
-                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2 , mb: -0.5}} >
+                <Box sx={{ display: 'flex', }}>
+                    <Typography variant='h6' fontWeight="bold" sx={{ mt: 2, mb: -0.5 }} >
                         Geolocalização
                     </Typography>
                 </Box>
-                <Typography variant='p' sx={{mb: 3}} color='text.secondary'>Antes de finalizar o cadastro, confira se a coordenadas estão corretas. 
-                Caso não saiba como realizar o teste <a style={{textDecoration: 'none', color: '#04005D'}} target="_blank" href="https://support.google.com/maps/answer/18539?hl=pt-PT&co=GENIE.Platform%3DAndroid#:~:text=Ver%20as%20coordenadas%20de%20um%20lugar%201%20No,Na%20caixa%20de%20pesquisa%2C%20voc%C3%AA%20ver%C3%A1%20as%20coordenadas.">clique aqui</a>.</Typography>
+                <Typography variant='p' sx={{ mb: 3 }} color='text.secondary'>Antes de finalizar o cadastro, confira se a coordenadas estão corretas.
+                    Caso não saiba como realizar o teste <a style={{ textDecoration: 'none', color: '#04005D' }} target="_blank" href="https://support.google.com/maps/answer/18539?hl=pt-PT&co=GENIE.Platform%3DAndroid#:~:text=Ver%20as%20coordenadas%20de%20um%20lugar%201%20No,Na%20caixa%20de%20pesquisa%2C%20voc%C3%AA%20ver%C3%A1%20as%20coordenadas.">clique aqui</a>.</Typography>
                 <Paper
-                            sx={{
-                                pt: 1,
-                                px: 5,
-                                pb: 3,
-                                mt: 3
-                            }}
-                        >
-                <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                        <TextField
-                            margin="normal"
-                            sx={{width: '100%'}}
-                            required
-                            id="latitude"
-                            label="Latitude"
-                            name="latitude"
-                            autoComplete="latitude"
-                            value={endereco.latitude}
-                            onChange={(e) => setEndereco({ ...endereco, latitude: e.target.value })}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                        />
+                    sx={{
+                        pt: 1,
+                        px: 5,
+                        pb: 3,
+                        mt: 3
+                    }}
+                >
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                margin="normal"
+                                sx={{ width: '100%' }}
+                                required
+                                id="latitude"
+                                label="Latitude"
+                                name="latitude"
+                                autoComplete="latitude"
+                                value={endereco.latitude}
+                                onChange={(e) => setEndereco({ ...endereco, latitude: e.target.value })}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                margin="normal"
+                                sx={{ width: '100%' }}
+                                required
+                                id="longitude"
+                                label="Longitude"
+                                name="longitude"
+                                autoComplete="longitude"
+                                value={endereco.longitude}
+                                onChange={(e) => setEndereco({ ...endereco, longitude: e.target.value })}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            margin="normal"
-                            sx={{width: '100%'}}
-                            required
-                            id="longitude"
-                            label="Longitude"
-                            name="longitude"
-                            autoComplete="longitude"
-                            value={endereco.longitude}
-                            onChange={(e) => setEndereco({ ...endereco, longitude: e.target.value })}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                        />
-                    </Grid>
-                </Grid>
                 </Paper>
                 {submitSuccess && (
                     <Alert severity="success" sx={{ mt: 2, textAlign: 'center' }}>
@@ -463,7 +461,6 @@ export default function NewDrugstore() {
                         Cadastrar
                     </Button>
                 </Grid>
-
             </Box>
         </Box>
     )

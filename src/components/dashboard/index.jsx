@@ -2,24 +2,22 @@ import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { CssBaseline, Drawer as MuiDrawer, Box, AppBar as MuiAppBar, Toolbar, List, Typography, IconButton, Divider, Container } from '@mui/material';
 import { Menu as MenuIcon, ChevronLeft as ChevronLeftIcon } from '@mui/icons-material';
-import { mainListItems, secondaryListItems} from './listItems';
-import { Routes, Route } from 'react-router-dom';
+import { mainListItems, secondaryListItems } from './listItems'; // Importa as opções do menu
+import { Routes, Route } from 'react-router-dom'; // Importa componentes para gerenciar rotas
 import NewDrugstore from '../drugstores';
 import NewMedicament from '../new-medicament';
 import Map from '../map';
 import Help from '../help';
 import Medicaments from '../listMedicaments';
-import NotificationMenu from '../notificationMenu';
+import NotificationMenu from '../notificationMenu'; // Importa o componente de menu de notificações
 import NotFoundPage from '../404'
 import logoSM from '../../assets/img/logoSM.png'
 import logo from '../../assets/img/logo.png'
 
-
-
 // Largura da Gaveta
 const drawerWidth = 240;
 
-// Define caracteristicas de estilo para AppBar e também controla animação de abertura e fechamento.
+// Define características de estilo para AppBar e também controla animação de abertura e fechamento.
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -69,22 +67,26 @@ export default function Dashboard() {
 
     const theme = useTheme();
 
-
+    // Estado para controlar a abertura e fechamento do Drawer
     const [open, setOpen] = React.useState(false);
+
+    // Função para alternar o estado do Drawer (abrir/fechar)
     const toggleDrawer = () => {
         setOpen(!open);
     };
    
     return (
-
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
+
+            {/* AppBar: Barra superior */}
             <AppBar position="absolute" open={open}>
                 <Toolbar
                     sx={{
                         pr: '24px', // Mantém o padding da direita quando o Drawer está fechado.
                     }}
                 >
+                    {/* Ícone para abrir o Drawer */}
                     <IconButton
                         edge="start"
                         color="inherit"
@@ -97,6 +99,7 @@ export default function Dashboard() {
                     >
                         <MenuIcon />
                     </IconButton>
+                    {/* Logo na barra superior */}
                     <img
                         style={{}}
                         alt="Logo"
@@ -104,6 +107,7 @@ export default function Dashboard() {
                         width="50"
                         height="50"
                     />
+                    {/* Título da aplicação */}
                     <Typography
                         component="p"
                         variant="p"
@@ -117,9 +121,12 @@ export default function Dashboard() {
                     >
                         Medicament Management
                     </Typography>
+                    {/* Menu de notificações */}
                     <NotificationMenu/>
                 </Toolbar>
             </AppBar>
+
+            {/* Drawer: Menu lateral */}
             <Drawer variant="permanent" open={open}>
                 <Toolbar
                     sx={{
@@ -129,9 +136,11 @@ export default function Dashboard() {
                         px: [1],
                     }}
                 >
+                    {/* Ícone para fechar o Drawer */}
                     <IconButton onClick={toggleDrawer}>
                         <ChevronLeftIcon />
                     </IconButton>
+                    {/* Logo no menu lateral */}
                     <img
                         style={{ padding: '5px' }}
                         alt="Logo"
@@ -142,11 +151,13 @@ export default function Dashboard() {
                 </Toolbar>
                 <Divider />
                 <List component="nav">
-                    {mainListItems} {/* Chama a lista de opções principais do menu. */}
+                    {mainListItems} {/* Renderiza a lista de opções principais do menu */}
                     <Divider sx={{ my: 1 }} />
-                    {secondaryListItems} {/* Chama a lista secundária de opções do menu. */}
+                    {secondaryListItems} {/* Renderiza a lista secundária de opções do menu */}
                 </List>
             </Drawer>
+
+            {/* Conteúdo principal */}
             <Box
                 component="main"
                 sx={{
@@ -161,8 +172,8 @@ export default function Dashboard() {
             >
                 <Toolbar />
                 <Container maxWidth="lg" sx={{ my: 3 }}>
+                    {/* Rotas internas para as opções do menu */}
                     <Routes>
-                        {/* Rotas internas para as opções do menu*/}
                         <Route path="/" element={<Medicaments />} />
                         <Route path="/newpharmacy" element={<NewDrugstore />} />
                         <Route path="/newmedicament" element={<NewMedicament />} />
@@ -174,6 +185,5 @@ export default function Dashboard() {
                 </Container>
             </Box>
         </Box>
-
     );
 }
