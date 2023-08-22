@@ -23,10 +23,10 @@ Para executar o sistema localmente, siga os seguintes passos:
 
 Aqui estão algumas capturas de tela do Medicament Management System:
 
-![Login](screenshots/login.png)
+![Login](https://github.com/henriquemafra/DEVinPharmacy/blob/main/screenshots/login.PNG?raw=true)
 *Login: Página de login.*
 
-![Medicamentos](screenshots/medicamentos.png)
+![Medicamentos](https://github.com/henriquemafra/DEVinPharmacy/blob/main/screenshots/medicamentos.PNG?raw=true)
 *Medicamentos: Página de medicamentos.*
 
 ## Página de Medicamentos
