@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function NotificationMenu() {
 
- 
+
   // Estado para armazenar dados das notificações
   const [notificationsData, setNotificationsData] = useState(newNotifications); // Inicialize com as novas notificações
 
@@ -69,15 +69,15 @@ export default function NotificationMenu() {
         ) : (
           notificationsData.map((notification, index) => ( // Função map para exibir todas as notificações de notificationsExamples
             <Link to={notification.link} style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
-            <MenuItem key={index} onClick={() => handleDelete(index)}> 
-              <Box sx={{ display: 'flex', alignItems: 'start', width: '350px', p: 2 }}>
-                <Avatar alt="logo" src={logoSMW} />
-                <Typography variant='body2' component='div' sx={{ ml: 1, whiteSpace: 'normal' }}>
-                  <b>{notification.title}:</b> <br/>
-                  {notification.notification}
-                </Typography>
-              </Box>
-            </MenuItem>
+              <MenuItem key={index} onClick={() => handleDelete(index)}>
+                <Box sx={{ display: 'flex', alignItems: 'start', width: '350px', p: 2 }}>
+                  <Avatar alt="logo" src={logoSMW} />
+                  <Typography variant='body2' component='div' sx={{ ml: 1, whiteSpace: 'normal' }}>
+                    <b>{notification.title}:</b> <br />
+                    {notification.notification}
+                  </Typography>
+                </Box>
+              </MenuItem>
             </Link>
           ))
         )}

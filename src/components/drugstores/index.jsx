@@ -349,7 +349,7 @@ export default function NewDrugstore() {
                                 name="numero"
                                 InputLabelProps={{
                                     shrink: true,
-                                  }}
+                                }}
                                 autoComplete="numero"
                             />
                         </Grid>

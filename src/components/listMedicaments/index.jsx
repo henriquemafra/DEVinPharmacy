@@ -60,7 +60,7 @@ export default function Medicaments() {
     const updatedMedicamentos = [...medicamentos];
     updatedMedicamentos.splice(index, 1);
     updateMedicamentosData(updatedMedicamentos);
-    handleCloseModal(); 
+    handleCloseModal();
   };
 
   // Função para filtrar os medicamentos com base no termo de pesquisa
@@ -77,7 +77,7 @@ export default function Medicaments() {
         <Grid item xs={12} sm={9}>
           <Box sx={{ display: 'flex', mb: -1.1 }}>
 
-            <Typography variant='h4' fontWeight="bold"  sx={{ my: 1 }} >
+            <Typography variant='h4' fontWeight="bold" sx={{ my: 1 }} >
               Medicamentos <br />
             </Typography>
           </Box>
@@ -153,12 +153,12 @@ export default function Medicaments() {
         }}>
           <Paper sx={{ p: 1 }} elevation={8} >
             <Grid item sm={12} xs={12} sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Button size='small' color="error" onClick={() => handleDelete(selectedMedicamento.index)} ><DeleteIcon /></Button>
+              <Button size='small' color="error" onClick={() => handleDelete(selectedMedicamento.index)} ><DeleteIcon /></Button>
               <Button size='small' onClick={handleCloseModal}><CloseIcon /></Button>
             </Grid>
             <Grid sx={{ p: 4, display: 'flex', [theme.breakpoints.down('sm')]: { p: 1, } }} container>
-              <Grid container sx={{ width: '400px', [theme.breakpoints.down('sm')]: {width: '300px'} }}>
-                <Grid item xs={12} sm={6} sx={{ mt:2, mb:1 }}>
+              <Grid container sx={{ width: '400px', [theme.breakpoints.down('sm')]: { width: '300px' } }}>
+                <Grid item xs={12} sm={6} sx={{ mt: 2, mb: 1 }}>
                   <Box sx={{ display: 'flex' }}>
                     <Typography variant="h5" fontWeight="bold" component="div">
                       {selectedMedicamento && selectedMedicamento.nomeMedicamento}
@@ -171,10 +171,10 @@ export default function Medicaments() {
                   <Typography variant='p' component="div" sx={{ fontSize: 12 }} color="text.secondary" gutterBottom>
                     Laboratório: {selectedMedicamento && selectedMedicamento.laboratorio} | {selectedMedicamento && selectedMedicamento.tipo}
                   </Typography>
-                 
+
                 </Grid>
-                <Grid item xs={12} sm={6} sx={{ mt:4, mb:1, textAlign: 'center', [theme.breakpoints.down('sm')]: {textAlign: 'left', mt:1}}}>
-                <Typography variant="h5" fontWeight="bold" color="text.primary">
+                <Grid item xs={12} sm={6} sx={{ mt: 4, mb: 1, textAlign: 'center', [theme.breakpoints.down('sm')]: { textAlign: 'left', mt: 1 } }}>
+                  <Typography variant="h5" fontWeight="bold" color="text.primary">
                     {selectedMedicamento && selectedMedicamento.precounid}
                   </Typography>
                 </Grid>
@@ -186,16 +186,16 @@ export default function Medicaments() {
                     alt="remedio"
                   />
                 </Grid>
-              
 
-              <Grid item xs={12} sm={12}>
-                <Typography variant="body2" component="div" sx={{ textAlign: 'justify', width: '400px', mt: 2, [theme.breakpoints.down('sm')]: {width: '300px'} }} color="text.primary">
-                  <Typography variant="p" sx={{ fontWeight: 'bold' }} color="text.primary">
-                    Descrição:
-                  </Typography> <br /> {selectedMedicamento && selectedMedicamento.descricao}
-                </Typography>
+
+                <Grid item xs={12} sm={12}>
+                  <Typography variant="body2" component="div" sx={{ textAlign: 'justify', width: '400px', mt: 2, [theme.breakpoints.down('sm')]: { width: '300px' } }} color="text.primary">
+                    <Typography variant="p" sx={{ fontWeight: 'bold' }} color="text.primary">
+                      Descrição:
+                    </Typography> <br /> {selectedMedicamento && selectedMedicamento.descricao}
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
             </Grid>
           </Paper>
         </Box>

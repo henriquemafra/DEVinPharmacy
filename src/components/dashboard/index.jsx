@@ -74,7 +74,7 @@ export default function Dashboard() {
     const toggleDrawer = () => {
         setOpen(!open);
     };
-   
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -122,7 +122,7 @@ export default function Dashboard() {
                         Medicament Management
                     </Typography>
                     {/* Menu de notificações */}
-                    <NotificationMenu/>
+                    <NotificationMenu />
                 </Toolbar>
             </AppBar>
 
@@ -179,8 +179,8 @@ export default function Dashboard() {
                         <Route path="/newmedicament" element={<NewMedicament />} />
                         <Route path="/map" element={<Map />} />
                         <Route path="/medicaments" element={<Medicaments />} />
-                        <Route path="/help" element={<Help/>} />
-                        <Route path='/*' element={<NotFoundPage/>} />
+                        <Route path="/help" element={<Help />} />
+                        <Route path='/*' element={<NotFoundPage />} />
                     </Routes>
                 </Container>
             </Box>

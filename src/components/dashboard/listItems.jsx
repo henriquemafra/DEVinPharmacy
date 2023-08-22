@@ -60,9 +60,9 @@ export const secondaryListItems = (
           <LogoutIcon />
         </ListItemIcon>
         <ListItemText primary="Sair" />
-        </Link>
+      </Link>
     </ListItemButton>
   </React.Fragment>
 
- 
+
 );

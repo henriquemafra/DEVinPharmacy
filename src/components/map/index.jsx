@@ -1,9 +1,9 @@
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png'
-import {Icon} from 'leaflet'
+import { Icon } from 'leaflet'
 import { useState, useEffect, React } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Container, Typography, Box, Button} from '@mui/material';
+import { Container, Typography, Box, Button } from '@mui/material';
 import { newPharmacies } from '../drugstores/pharmaExamples'
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -52,19 +52,19 @@ export default function Map() {
     return value.replace(/\D/g, '');
   };
 
-    // Função para atualizar os Farmacia no localStorage
-    const updateFarmaciaData = (updatedFarmacias) => {
-      localStorage.setItem('farmaciasData', JSON.stringify(updatedFarmacias));
-      setFarmaciasData(updatedFarmacias); // Usar setFarmaciasData ao invés de setFarmacia
-    };
-    
+  // Função para atualizar os Farmacia no localStorage
+  const updateFarmaciaData = (updatedFarmacias) => {
+    localStorage.setItem('farmaciasData', JSON.stringify(updatedFarmacias));
+    setFarmaciasData(updatedFarmacias); // Usar setFarmaciasData ao invés de setFarmacia
+  };
 
-    const handleDelete = (index) => {
-      const updatedFarmacias = [...farmaciasData]; // Usar farmaciasData ao invés de farmacia
-      updatedFarmacias.splice(index, 1);
-      updateFarmaciaData(updatedFarmacias);
-    };
-    
+
+  const handleDelete = (index) => {
+    const updatedFarmacias = [...farmaciasData]; // Usar farmaciasData ao invés de farmacia
+    updatedFarmacias.splice(index, 1);
+    updateFarmaciaData(updatedFarmacias);
+  };
+
   return (
 
     <Box sx={{ p: 2, overflow: 'hidden' }}>
@@ -73,34 +73,34 @@ export default function Map() {
           Farmácias
         </Typography>
       </Box>
-      <Typography variant='p' component="div" sx={{mb: 1, borderBottom: '1px solid rgba(0, 0, 0, 0.12);' }} color='text.secondary'>Total de {data.length} farmácias cadastradas até o momento.</Typography>
+      <Typography variant='p' component="div" sx={{ mb: 1, borderBottom: '1px solid rgba(0, 0, 0, 0.12);' }} color='text.secondary'>Total de {data.length} farmácias cadastradas até o momento.</Typography>
       <MapContainer style={{ width: '100%', height: '65vh' }} center={position} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-       {data.map((farmacia, index) => (
-  <Marker
-    icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}
-    key={index}
-    position={[parseFloat(farmacia.latitude), parseFloat(farmacia.longitude)]}
-  >
-    <Popup closeButton={false}>
-      <Typography variant='p' component='div' sx={{mt: 2, mb: 4}}>
-        Farmácia: {farmacia.nomeFantasia} <br />
-        Razão Social: {farmacia.razaoSocial} <br />
-        CNPJ: {farmacia.cnpj} <br />
-        Email: {farmacia.email} <br />
-        {farmacia.telefone ? `Telefone: ${farmacia.telefone}` : null} {/* Verifica se o campo é verdadeiro antes de renderizar no popup*/}
-        Celular: <a target="_blank" href={`http://wa.me/55${removeFormatting(farmacia.celular)}`}>{farmacia.celular}</a> <br />
-        Endereço: {farmacia.cidade}/{farmacia.estado} - {farmacia.bairro} <br />
-        {farmacia.logradouro}, {farmacia.numero} - CEP: {farmacia.cep} <br />
-        {farmacia.complemento ? `Complemento: ${farmacia.complemento}` : null} {/* Verifica se o campo é verdadeiro antes de renderizar no popup*/}
-      </Typography>
-      <Button sx={{position: 'absolute', bottom: 0 , right: 0, borderRadius: '10px 0px 10px 0px', boxShadow: 'none'}} color="error" variant='contained' size='small' onClick={() => handleDelete(index)} ><DeleteIcon /></Button>
-    </Popup>
-  </Marker>
-))}
+        {data.map((farmacia, index) => (
+          <Marker
+            icon={new Icon({ iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41] })}
+            key={index}
+            position={[parseFloat(farmacia.latitude), parseFloat(farmacia.longitude)]}
+          >
+            <Popup closeButton={false}>
+              <Typography variant='p' component='div' sx={{ mt: 2, mb: 4 }}>
+                Farmácia: {farmacia.nomeFantasia} <br />
+                Razão Social: {farmacia.razaoSocial} <br />
+                CNPJ: {farmacia.cnpj} <br />
+                Email: {farmacia.email} <br />
+                {farmacia.telefone ? `Telefone: ${farmacia.telefone}` : null} {/* Verifica se o campo é verdadeiro antes de renderizar no popup*/}
+                Celular: <a target="_blank" href={`http://wa.me/55${removeFormatting(farmacia.celular)}`}>{farmacia.celular}</a> <br />
+                Endereço: {farmacia.cidade}/{farmacia.estado} - {farmacia.bairro} <br />
+                {farmacia.logradouro}, {farmacia.numero} - CEP: {farmacia.cep} <br />
+                {farmacia.complemento ? `Complemento: ${farmacia.complemento}` : null} {/* Verifica se o campo é verdadeiro antes de renderizar no popup*/}
+              </Typography>
+              <Button sx={{ position: 'absolute', bottom: 0, right: 0, borderRadius: '10px 0px 10px 0px', boxShadow: 'none' }} color="error" variant='contained' size='small' onClick={() => handleDelete(index)} ><DeleteIcon /></Button>
+            </Popup>
+          </Marker>
+        ))}
 
       </MapContainer>
     </Box>

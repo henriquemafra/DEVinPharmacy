@@ -26,7 +26,7 @@ export default function NotFoundPage() {
         <Typography variant='p' component='div'>
           A URL requisitada não foi encontrada em nossos servidores.
         </Typography>
-        <Button variant="contained" color="primary" sx={{mt:5}} onClick={handleGoBack}>
+        <Button variant="contained" color="primary" sx={{ mt: 5 }} onClick={handleGoBack}>
           Voltar
         </Button>
       </Grid>

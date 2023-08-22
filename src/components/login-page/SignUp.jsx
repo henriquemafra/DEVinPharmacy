@@ -21,52 +21,52 @@ export default function SignUp() {
   const [isRegistered, setIsRegistered] = useState(false);
 
   // Cria uma função para lidar com o envio do formulário.
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!email.match(emailPattern)) {
-    setErrorAlert(true);
-    setTimeout(() => {
-      setErrorAlert(false);
-    }, 10000);
-  } else if (
-    password.length < 8 ||
-    !/(?=.*[a-zA-Z])/.test(password) ||
-    !/(?=.*\d)/.test(password)
-  ) {
-    setErrorAlertPassword(true);
-    setTimeout(() => {
-      setErrorAlertPassword(false);
-    }, 10000);
-  } else {
-    // Crie um objeto com os dados do novo usuário
-    const newUser = {
-      firstName,
-      lastName,
-      supervisor,
-      filial,
-      email,
-      password
-    };
+    if (!email.match(emailPattern)) {
+      setErrorAlert(true);
+      setTimeout(() => {
+        setErrorAlert(false);
+      }, 10000);
+    } else if (
+      password.length < 8 ||
+      !/(?=.*[a-zA-Z])/.test(password) ||
+      !/(?=.*\d)/.test(password)
+    ) {
+      setErrorAlertPassword(true);
+      setTimeout(() => {
+        setErrorAlertPassword(false);
+      }, 10000);
+    } else {
+      // Crie um objeto com os dados do novo usuário
+      const newUser = {
+        firstName,
+        lastName,
+        supervisor,
+        filial,
+        email,
+        password
+      };
 
-    // Obtenha os dados armazenados no localStorage
-    const storedData = JSON.parse(localStorage.getItem('users')) || [];
+      // Obtenha os dados armazenados no localStorage
+      const storedData = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Adicione o novo usuário aos dados armazenados
-    const updatedData = [...storedData, newUser];
+      // Adicione o novo usuário aos dados armazenados
+      const updatedData = [...storedData, newUser];
 
-    // Salve os dados atualizados no localStorage
-    localStorage.setItem('users', JSON.stringify(updatedData));
+      // Salve os dados atualizados no localStorage
+      localStorage.setItem('users', JSON.stringify(updatedData));
 
-    // Marque o cadastro como feito com sucesso
-    setIsRegistered(true);
-    const redirectTimeout = 5000;
-    setTimeout(() => {
-      window.location.href = '/';
-    }, redirectTimeout);
-  }
-};
+      // Marque o cadastro como feito com sucesso
+      setIsRegistered(true);
+      const redirectTimeout = 5000;
+      setTimeout(() => {
+        window.location.href = '/';
+      }, redirectTimeout);
+    }
+  };
 
   // Inicia o contador em 10 segundos
   const [countdown, setCountdown] = useState(5);
@@ -188,11 +188,11 @@ const handleSubmit = (event) => {
             Cadastrar
           </Button>
           {errorAlert && (
-                    <Alert variant="outlined" severity="error">Informe um email válido por favor.</Alert>
-                )}
-                {errorAlertPassword && (
-                    <Alert variant="outlined" severity="error" sx={{ mt:1}}>Informe uma senha válida com no mínimo 8 caracteres incluindo letras e números.</Alert>
-                )}
+            <Alert variant="outlined" severity="error">Informe um email válido por favor.</Alert>
+          )}
+          {errorAlertPassword && (
+            <Alert variant="outlined" severity="error" sx={{ mt: 1 }}>Informe uma senha válida com no mínimo 8 caracteres incluindo letras e números.</Alert>
+          )}
           {isRegistered && (
             <Alert variant="outlined" severity="success" sx={{ mt: 1 }}>
               Seu cadastro foi efetuado com sucesso. Você será redirecionado para página de login em {countdown} segundos.

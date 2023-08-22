@@ -33,9 +33,9 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage />} />
-          <Route path='/dashboard/*' element={<Dashboard />} />  
-          <Route path='/LoginPage/*' element={<LoginPage />} /> 
-          <Route path='*' element={<NotFoundPage/>} />    
+          <Route path='/dashboard/*' element={<Dashboard />} />
+          <Route path='/LoginPage/*' element={<LoginPage />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Router>
     </ThemeProvider>

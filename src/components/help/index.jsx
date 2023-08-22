@@ -8,16 +8,16 @@ export default function Help() {
 
   return (
     <Box sx={{ p: 2, overflow: 'hidden' }}>
-      <Box sx={{ display: 'flex'}}>
-      <img
-                        style={{}}
-                        alt="Logo"
-                        src={LogoSMW}
-                        width="50"
-                        height="50"
-                    /><Typography variant="h4" fontWeight="bold" sx={{ ml: 1, mt: 1 }}>
-       Ajuda
-      </Typography>
+      <Box sx={{ display: 'flex' }}>
+        <img
+          style={{}}
+          alt="Logo"
+          src={LogoSMW}
+          width="50"
+          height="50"
+        /><Typography variant="h4" fontWeight="bold" sx={{ ml: 1, mt: 1 }}>
+          Ajuda
+        </Typography>
       </Box>
       <Typography variant="p" component='div' sx={{ mt: 2 }} color="text.secondary">
         Bem-vindo à seção de Ajuda do Medicament Management System. Aqui você encontrará informações detalhadas sobre como usar cada página e recurso do programa.
@@ -108,7 +108,7 @@ export default function Help() {
           </Typography>
         </li>
       </ul>
-      
+
     </Box>
   );
 }

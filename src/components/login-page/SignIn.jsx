@@ -11,7 +11,7 @@ import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import logo from '../../assets/img/logo.png'
 
-export default function SignIn({}) {
+export default function SignIn({ }) {
 
     const [formData, setFormData] = useState({
         email: '',
@@ -31,35 +31,35 @@ export default function SignIn({}) {
             [name]: value,
         }));
     };
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
-      
+
         // Obtem os dados armazenados no localStorage
         const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-      
+
         // Verifica se há um usuário com o email inserido
         const user = storedUsers.find(user => user.email === formData.email);
-      
+
         if (!user) {
-          // Usuário não encontrado, exiba um alerta de erro
-          setErrorAlert(true);
-          setTimeout(() => {
-            setErrorAlert(false);
-          }, 10000);
+            // Usuário não encontrado, exiba um alerta de erro
+            setErrorAlert(true);
+            setTimeout(() => {
+                setErrorAlert(false);
+            }, 10000);
         } else if (user.password !== formData.password) {
-          // Senha incorreta, exibe um alerta de erro
-          setErrorAlertPassword(true);
-          setTimeout(() => {
-            setErrorAlertPassword(false);
-          }, 10000);
+            // Senha incorreta, exibe um alerta de erro
+            setErrorAlertPassword(true);
+            setTimeout(() => {
+                setErrorAlertPassword(false);
+            }, 10000);
         } else {
-          // Login bem-sucedido, redireciona para a página de destino
-          window.location.href = '/dashboard';
+            // Login bem-sucedido, redireciona para a página de destino
+            window.location.href = '/dashboard';
         }
-      };
-      
-    
+    };
+
+
     return (
         <Box
             sx={{
