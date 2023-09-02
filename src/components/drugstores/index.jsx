@@ -152,7 +152,7 @@ export default function NewDrugstore() {
     // Usa API da Google para obter os dados aproximados de geolocalização através do CEP
     const obterGeolocalizacao = async (endereco) => {
         try {
-            const apiKey = 'AIzaSyB__bX2Rwc-3E7A9luN09-r7LetvLnINoo'; // remover após entrega do projeto.
+            const apiKey = import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY;
             const formattedEndereco = encodeURIComponent(endereco);
 
             const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedEndereco}&key=${apiKey}`);
